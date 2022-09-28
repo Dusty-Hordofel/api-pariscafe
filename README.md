@@ -13,3 +13,7 @@ A brief description of what this project does and who it's for
 - create src->index.js(entrie point) & fill it.
 - add a script in package.json file & create res.rest.
 - add gitignore file.
+
+### 2. Intro to MongoDB on Cloud
+
+- setup MongoDB in the cloud...
