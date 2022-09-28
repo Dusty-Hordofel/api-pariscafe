@@ -72,6 +72,10 @@ A brief description of what this project does and who it's for
 - npm i joi & create validators->schema-validator.js
 - use schema-validator in category controllers & test the script
 
+### 9. API End point - Retrieve Category By Id
+
+- create getCategoryId & getCategory controllers
+
 ---
 
 ### 📚 MERN Stack References

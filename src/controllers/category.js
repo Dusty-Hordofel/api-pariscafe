@@ -3,6 +3,36 @@ const createError = require('http-errors');
 const { categorySchema } = require('../validators/schema-validator');
 const mongoose = require('mongoose');
 
+exports.getCategory = (req, res) => {
+  //TODO: send the category to the client
+  res.status(200).json(req.category); //req.category is the category we added to the request object in the getCategoryId function
+};
+
+exports.getCategoryId = async (req, res, next, id) => {
+  try {
+    //TODO: check if the id is valid
+    const category = await Category.findById(id);
+    //TODO: verify if the category exists
+    if (!category) return next(createError(404, 'Category not found'));
+    //TODO: add category to the request object
+    req.category = category;
+    //TODO: call next middleware
+    next(); //we call the next function witch is the getCategory function in this case witch is at the top
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: category.js ~ line 24 ~ exports.getCategoryId=async ~ error',
+      error
+    );
+    //TODO: handle invalid id error
+    if (error instanceof mongoose.CastError) {
+      //erroe instanceof mongoose.CastError is used to check if the error is a mongoose error
+      return next(createError(400, 'Invalid Category Id'));
+    }
+
+    next(error);
+  }
+};
+
 exports.fetchAllCategories = async (req, res, next) => {
   try {
     //TODO: fetch all categories
