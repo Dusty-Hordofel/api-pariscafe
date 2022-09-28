@@ -17,3 +17,7 @@ A brief description of what this project does and who it's for
 ### 2. Intro to MongoDB on Cloud
 
 - setup MongoDB in the cloud...
+
+### 3. API integration with Mongo
+
+- npm i mongoose & connect to MongoDB database
