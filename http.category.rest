@@ -12,7 +12,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "name": "Mexican2"
+  "name": "Mexico"
 }
 
 ### get category by id

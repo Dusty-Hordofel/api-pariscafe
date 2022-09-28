@@ -67,6 +67,11 @@ A brief description of what this project does and who it's for
 - create createCategory routes and endpoint.
 - test the script
 
+### 8. Introduction to input validation on APIs
+
+- npm i joi & create validators->schema-validator.js
+- use schema-validator in category controllers & test the script
+
 ---
 
 ### 📚 MERN Stack References
@@ -82,6 +87,7 @@ A brief description of what this project does and who it's for
 - 🔗 [cors](https://www.npmjs.com/package/cors)
 - 🔗 [morgan](https://www.npmjs.com/package/morgan)
 - 🔗 [http-errors](https://www.npmjs.com/package/http-errors)
+- 🔗 [joi](https://www.npmjs.com/package/joi)
 
 ### 📚 Other Node.js REST API Dependencies
 
