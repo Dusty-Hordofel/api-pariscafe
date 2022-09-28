@@ -62,6 +62,11 @@ A brief description of what this project does and who it's for
 - npm i http-errors && index.js
 - update category controllers
 
+### 7. API - Create a Dish Category
+
+- create createCategory routes and endpoint.
+- test the script
+
 ---
 
 ### 📚 MERN Stack References
@@ -97,4 +102,4 @@ A brief description of what this project does and who it's for
 
 ### 💻 Source Code
 
-- 🔗 [Branche 1 - Intro to MERN](https://github.com/gitdagray/mern_stack_course/tree/main/lesson_01)
+- 🔗 [Branche 1 - Intro to MERN](https://github.com/Dusty-Hordofel/api-pariscafe/tree/Catalog-Design)
