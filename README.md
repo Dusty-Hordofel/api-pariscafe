@@ -21,3 +21,9 @@ A brief description of what this project does and who it's for
 ### 3. API integration with Mongo
 
 - npm i mongoose & connect to MongoDB database
+
+### 4. Designing our First API
+
+- create routes->category.js & controllers->category.js
+- create category model
+- create {fetchAllCategories} controllers & test it creating http.category.rest

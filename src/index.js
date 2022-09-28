@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
+const categoryRoutes = require('./routes/category');
+
 const app = express(); //to create a server
 
 //middleware
@@ -13,11 +15,15 @@ app.use(express.json()); //to receive json data
 
 const PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
+const PREFIX = '/' + process.env.PREFIX;
+
+app.use(PREFIX, categoryRoutes);
 
 app.get('/', (req, res) => {
   res.send({ message: 'Hello World!' });
 });
 
+//connect to database
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   try {
