@@ -25,5 +25,10 @@ A brief description of what this project does and who it's for
 ### 4. Designing our First API
 
 - create routes->category.js & controllers->category.js
-- create category model
 - create {fetchAllCategories} controllers & test it creating http.category.rest
+
+### 5. Designing our First Mongo model
+
+- create a category models
+- use category model in controllers->category.js
+- test the script in http.category.rest
