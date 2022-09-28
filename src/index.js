@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const createError = require('http-errors');
 require('dotenv').config();
 
 const categoryRoutes = require('./routes/category');
@@ -33,3 +34,21 @@ app.listen(PORT, async () => {
     console.log('🚀 ~ file: index.js ~ line 26 ~ app.listen ~ error', error);
   }
 }); //to start the server
+
+//TODO: handling invalid route
+app.use(async (req, res, next) => {
+  next(createError.NotFound());
+}); //we pass this error to the next middleware
+
+//here we pass the error we created in the previous middleware
+app.use((err, req, res, next) => {
+  // res.status = err.status || 500;
+  console.log(err.status);
+
+  res.status(err.status || 500).json({
+    error: {
+      status: err.status || 500,
+      message: err.message || 'Internal Server Error',
+    },
+  });
+});

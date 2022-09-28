@@ -1,6 +1,30 @@
+# "MERN Stack Project"
+
+---
+
 # Api-parisCafé
 
 A brief description of what this project does and who it's for
+
+---
+
+### Author Links
+
+👋 Hello, I'm Dusty Hordofel BAMANA.
+
+🚀 Follow Me:
+
+- [Twitter](https://twitter.com/...)
+- [LinkedIn](https://www.linkedin.com/in/....)
+- [Blog](https://.....)
+
+---
+
+### Description
+
+🚀 This repository shares ALL of the resources referenced during the MERN Project.
+
+---
 
 ## Section 1. Catalog Design
 
@@ -32,3 +56,45 @@ A brief description of what this project does and who it's for
 - create a category models
 - use category model in controllers->category.js
 - test the script in http.category.rest
+
+### 6. Designing API Error Handling Semantics
+
+- npm i http-errors && index.js
+- update category controllers
+
+---
+
+### 📚 MERN Stack References
+
+- 🔗 [Official Site for MongoDB](https://mongodb.com)
+- 🔗 [Official Site for Express.js](https://expressjs.com)
+- 🔗 [Official Site for React.js](https://reactjs.org)
+- 🔗 [Official Site for Node.js](https://nodejs.org/)
+
+### 📚 Middleware References
+
+- 🔗 [Express.js: Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
+- 🔗 [cors](https://www.npmjs.com/package/cors)
+- 🔗 [morgan](https://www.npmjs.com/package/morgan)
+- 🔗 [http-errors](https://www.npmjs.com/package/http-errors)
+
+### 📚 Other Node.js REST API Dependencies
+
+- 🔗 [dotenv](https://www.npmjs.com/package/dotenv)
+- 🔗 [MongooseJS](https://mongoosejs.com/)
+
+### ⚙ Tools:
+
+- 🔗 [React Dev Tools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+
+### ⚙ VS Code Extensions I Use:
+
+- 🔗 [ES7 React JS Snippets Extension](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+- 🔗 [vscode-icons VS Code Extension](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+- 🔗 [Turbo Console Log](https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log)
+
+---
+
+### 💻 Source Code
+
+- 🔗 [Branche 1 - Intro to MERN](https://github.com/gitdagray/mern_stack_course/tree/main/lesson_01)
