@@ -76,6 +76,11 @@ A brief description of what this project does and who it's for
 
 - create getCategoryId & getCategory controllers
 
+### 10. Design API Endpoint to create a dish resource
+
+- create routes->dish.js, controllers->dish.js & validators->schema-validator
+- create models->dish.js
+
 ---
 
 ### 📚 MERN Stack References

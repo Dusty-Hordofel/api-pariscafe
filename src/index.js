@@ -6,6 +6,7 @@ const createError = require('http-errors');
 require('dotenv').config();
 
 const categoryRoutes = require('./routes/category');
+const dishRoutes = require('./routes/dish');
 
 const app = express(); //to create a server
 
@@ -19,6 +20,7 @@ const DATABASE = process.env.DATABASE;
 const PREFIX = '/' + process.env.PREFIX;
 
 app.use(PREFIX, categoryRoutes);
+app.use(PREFIX, dishRoutes);
 
 app.get('/', (req, res) => {
   res.send({ message: 'Hello World!' });

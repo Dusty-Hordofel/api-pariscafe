@@ -1,0 +1,34 @@
+### create a new dish
+POST http://localhost:4317/api/dishes/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name" : "Test Dish1234",
+  "description" : "Test Dish3",
+  "price" : "200",
+  "category" : "63340c5216d64904482a6563"
+  
+}
+
+### get all the dishes
+GET http://localhost:4317/api/dishes
+Accept: application/json
+
+### get dish by id
+GET http://localhost:4317/api/dishes/60de035981dfb5117c0fc1c0
+Accept: application/json
+
+### get photo
+GET http://localhost:4317/api/dishes/60de035981dfb5117c0fc1c1/photo
+Accept: image/jpeg
+
+
+### find a dish by category
+POST http://localhost:4317/api/dishes/category/_search
+Content-Type: application/json
+Accept: application/json
+
+{
+  "categories": ["60df02fbd677d20015f3286f", "60dde63263642564088454a2"]
+}
