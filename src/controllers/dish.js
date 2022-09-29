@@ -52,6 +52,25 @@ exports.createDish = async (req, res, next) => {
   }
 };
 
+exports.fetchDishes = async (req, res, next) => {
+  try {
+    //TODO: fetch all dishes from the database without photo data and populate category _id & name data
+    const dishes = await Dish.find()
+      .select('-photo')
+      .populate('category', '_id, name');
+    //TODO: if there are no dishes, throw an error
+    if (dishes.length === 0) throw createError(400, 'No Disheses found');
+    //TODO: send the dishes to the client
+    res.status(200).json(dishes);
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: dish.js ~ line 63 ~ exports.fetchDishes= ~ error',
+      error
+    );
+    next(error);
+  }
+};
+
 exports.fetchDishById = (req, res) => {
   //TODO: findById without dish photo
   req.dish.photo = undefined;

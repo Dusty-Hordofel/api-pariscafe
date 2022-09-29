@@ -91,6 +91,10 @@ A brief description of what this project does and who it's for
 - handle error in createDish controllers.
 - create fetchDish & fetchDishById routes and controller
 
+### 13. API Endpoint to Fetch All Dishes
+
+- create createDish route and controller.
+
 ---
 
 ### 📚 MERN Stack References

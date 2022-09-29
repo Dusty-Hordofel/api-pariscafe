@@ -6,9 +6,11 @@ const {
 
   fetchDish,
   fetchDishById,
+  fetchDishes,
 } = require('../controllers/dish');
 
 router.post('/dishes', createDish);
+router.get('/dishes', fetchDishes);
 
 router.param('id', fetchDish);
 router.get('/dishes/:id', fetchDishById); //related to fetchDish
