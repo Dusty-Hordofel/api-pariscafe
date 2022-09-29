@@ -107,7 +107,7 @@ A brief description of what this project does and who it's for
 - connect Heroku with Github and select the api-pariscafe branch.
 - go to settings-> click on Reavel Config Vars & add (DATABASE,PORT & PREFIX)
 - npm config set legacy-peer-deps true
-- loging with all project
+- loging with all project and see
 
 ### 16. API Deploy to Cloud - Heroku
 
