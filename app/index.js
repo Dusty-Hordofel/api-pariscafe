@@ -5,8 +5,8 @@ const cors = require('cors');
 const createError = require('http-errors');
 require('dotenv').config();
 
-const categoryRoutes = require('./routes/category');
-const dishRoutes = require('./routes/dish');
+const categoryRoutes = require('../routes/category');
+const dishRoutes = require('../routes/dish');
 
 const app = express(); //to create a server
 
