@@ -4,8 +4,8 @@
   "description": "Section 1. Catalog Design",
   "main": "index.js",
   "scripts": {
-    "start": "node app/src/index.js",
-    "dev": "nodemon app/src/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
