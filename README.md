@@ -109,6 +109,11 @@ A brief description of what this project does and who it's for
 - npm config set legacy-peer-deps true
 - loging with all project
 
+### 16. API Deploy to Cloud - Heroku
+
+- fix Heroku error & test the new script with heroku url
+- See changes in heroku website.
+
 ---
 
 ### 📚 MERN Stack References
