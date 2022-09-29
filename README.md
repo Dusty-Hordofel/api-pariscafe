@@ -100,6 +100,15 @@ A brief description of what this project does and who it's for
 - create routes->dish->getDishPhoto & controller
 - test the script in http.dish.rest
 
+### 15. API Code Integration with Github
+
+- add api-pariscafe folder in github if it isn't done.
+- add Go to heroku (https://dashboard.heroku.com/apps) & create a new app (api-pariscafe)
+- connect Heroku with Github and select the api-pariscafe branch.
+- go to settings-> click on Reavel Config Vars & add (DATABASE,PORT & PREFIX)
+- npm config set legacy-peer-deps true
+- loging with all project
+
 ---
 
 ### 📚 MERN Stack References
