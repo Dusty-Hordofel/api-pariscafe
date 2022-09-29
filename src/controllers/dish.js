@@ -41,14 +41,6 @@ exports.createDish = async (req, res, next) => {
     );
     //TODO: error handling with joy
     if (error.isJoi === true) {
-      console.log(
-        '🚀 ~ file: dish.js ~ line 39 ~ exports.searchByCategory= ~ error',
-        error
-      );
-      console.log(
-        '🚀 ~ file: dish.js ~ line 43 ~ exports.searchByCategory= ~ error',
-        error
-      );
       error.status = 422;
     }
     //TODO: handle E11000 duplicate key error collection
@@ -57,6 +49,37 @@ exports.createDish = async (req, res, next) => {
     }
 
     next(error);
+  }
+};
+
+exports.fetchDishById = (req, res) => {
+  //TODO: findById without dish photo
+  req.dish.photo = undefined;
+  //TODO: send requested dish to the client
+  res.status(200).json(req.dish);
+};
+
+exports.fetchDish = async (req, res, next, id) => {
+  try {
+    //TODO: fetch the dish from the database
+    const dish = await Dish.findById(id);
+    //TODO: if the dish doesn't exist, throw an error
+    if (!dish) throw createError(404, 'Dish not found');
+    //TODO: attach the dish to the request object
+    req.dish = dish;
+    //TODO: move to the next middleware
+    next(); //next refers to the next function (like updateDishes,getDishesById....)
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: dish.js ~ line 59 ~ exports.fetchDish= ~ error',
+      error
+    );
+    //TODO: handle mongoose cast error
+    if (error instanceof mongoose.CastError) {
+      return next(createError(400, 'Invalid Dish Id'));
+    }
+
+    next(error); //to the next errors
   }
 };
 

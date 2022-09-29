@@ -86,6 +86,11 @@ A brief description of what this project does and who it's for
 - create savePhoto() && createDish
 - use (https://onlinejpgtools.com/convert-jpg-to-base64)
 
+### 12. API Input Data validation and Error Handling
+
+- handle error in createDish controllers.
+- create fetchDish & fetchDishById routes and controller
+
 ---
 
 ### 📚 MERN Stack References
