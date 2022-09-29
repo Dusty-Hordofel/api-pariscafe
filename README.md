@@ -95,6 +95,11 @@ A brief description of what this project does and who it's for
 
 - create createDish route and controller.
 
+### 14. API Endpoint to retrieve dish photo
+
+- create routes->dish->getDishPhoto & controller
+- test the script in http.dish.rest
+
 ---
 
 ### 📚 MERN Stack References

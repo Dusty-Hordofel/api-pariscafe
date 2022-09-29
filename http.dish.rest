@@ -20,7 +20,7 @@ GET http://localhost:4317/api/dishes/63353b76d5afffe8dc1439e0
 Accept: application/json
 
 ### get photo
-GET http://localhost:4317/api/dishes/60de035981dfb5117c0fc1c1/photo
+GET http://localhost:4317/api/dishes/63353b76d5afffe8dc1439e0/photo
 Accept: image/jpeg
 
 

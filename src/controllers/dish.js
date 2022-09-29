@@ -71,11 +71,23 @@ exports.fetchDishes = async (req, res, next) => {
   }
 };
 
+exports.getDishPhoto = (req, res) => {
+  //TODO: use created requested dish to get photo data
+  const dish = req.dish; //req.dish from fetchDish()
+  //TODO: if the dish have photo data, send it to the client
+  if (dish.photo.data) {
+    res.set('Content-Type', dish.photo.contentType); //we use set('Content-Type',...) is used to set the Content-Type HTTP header
+    res.send(dish.photo.data); // send the photo data to the client
+  } else {
+    return res.status(204).json({ message: 'No data Found' }); // if the dish doesn't have a photo, throw an error
+  }
+};
+
 exports.fetchDishById = (req, res) => {
   //TODO: findById without dish photo
   req.dish.photo = undefined;
   //TODO: send requested dish to the client
-  res.status(200).json(req.dish);
+  res.status(200).json(req.dish); //req.dish from fetchDish()
 };
 
 exports.fetchDish = async (req, res, next, id) => {
