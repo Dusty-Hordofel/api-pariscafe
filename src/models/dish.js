@@ -23,7 +23,7 @@ const dishSchema = mongoose.Schema(
       required: true,
     },
     photo: {
-      data: Buffer,
+      data: Buffer, //Buffer is a global object in node js that is used to store binary data
       contentType: String,
     },
     addedBy: {

@@ -81,6 +81,11 @@ A brief description of what this project does and who it's for
 - create routes->dish.js, controllers->dish.js & validators->schema-validator
 - create models->dish.js
 
+### 11. Enhance API to work with binary data - upload dish image
+
+- create savePhoto() && createDish
+- use (https://onlinejpgtools.com/convert-jpg-to-base64)
+
 ---
 
 ### 📚 MERN Stack References
@@ -106,6 +111,7 @@ A brief description of what this project does and who it's for
 ### ⚙ Tools:
 
 - 🔗 [React Dev Tools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- 🔗 [Online Jpeg Tools](https://onlinejpgtools.com/convert-jpg-to-base64)
 
 ### ⚙ VS Code Extensions I Use:
 

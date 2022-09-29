@@ -13,7 +13,8 @@ const app = express(); //to create a server
 //middleware
 app.use(morgan('dev')); //to Server log
 app.use(cors()); //to accept requests from any origin
-app.use(express.json()); //to receive json data
+app.use(express.json({ limit: '3mb' })); //to receive json data
+app.use(express.urlencoded({ limit: '3mb', extended: true }));
 
 const PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;

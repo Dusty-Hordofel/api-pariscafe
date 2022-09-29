@@ -74,6 +74,7 @@ exports.createCategory = async (req, res, next) => {
     res.status(201).json(newCategory);
   } catch (error) {
     console.log('🚀 ~ file: category.js ~ line 36 ~ error', error);
+    //TODO: error handling with joy
     if (error.isJoi === true) error.status = 422;
     //TODO: handle E11000 duplicate key error collection
     //if category already exists
