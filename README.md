@@ -106,13 +106,31 @@ A brief description of what this project does and who it's for
 - add Go to heroku (https://dashboard.heroku.com/apps) & create a new app (api-pariscafe)
 - connect Heroku with Github and select the api-pariscafe branch.
 - go to settings-> click on Reavel Config Vars & add (DATABASE,PORT & PREFIX)
-- npm config set legacy-peer-deps true
-- loging with all project and see
+- add a buildpack in settings
+- loging with all project
 
 ### 16. API Deploy to Cloud - Heroku
 
 - fix Heroku error & test the new script with heroku url
 - See changes in heroku website.
+- npm config set legacy-peer-deps true
+
+### 17. Resolve Heroku - Bug
+
+- don't deploy morgan and nodemon
+
+### 18. UI - API Integration - Setting up AXIOS
+
+- create a newDishes and test theses API.
+- create request folder & put request files in it
+
+### 19. API Endpoint to Filter Dishes By Category
+
+- create searchByCategory route and controller
+
+### 20. Deploy to Cloud - Heroku
+
+- deploy api-pariscafe to heroku
 
 ---
 

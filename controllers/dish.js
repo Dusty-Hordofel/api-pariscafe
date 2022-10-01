@@ -5,6 +5,36 @@ const mongoose = require('mongoose');
 
 const imageTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
 
+exports.searchByCategory = async (req, res, next) => {
+  //TODO:retrieve categories from the body
+  let { categories } = req.body;
+  //TODO: define the criteria const to search by category
+  let criteria = {};
+
+  try {
+    //TODO: if categories is empty, throw an error
+    if (categories.length === 0) {
+      return next(createError(404, 'No categories specified'));
+    }
+
+    //TODO: define criteria by category
+    criteria = { category: { $in: categories } }; //$in is a MongoDB operator that selects the documents where the value of a field equals any value in the specified array.
+    //TODO: find dishes by category
+    const result = await Dish.find(criteria)
+      .select('-photo')
+      .populate('category', '_id name');
+    //TODO/ send the result to the client
+    res.status(200).json(result);
+  } catch (error) {
+    console.log(
+      '🚀 ~ file: dish.js ~ line 32 ~ exports.searchByCategory= ~ error',
+      error
+    );
+
+    next(error);
+  }
+};
+
 exports.createDish = async (req, res, next) => {
   //TODO: retrieve category data from the body
   const { name, description, price, category, photo } = req.body;
