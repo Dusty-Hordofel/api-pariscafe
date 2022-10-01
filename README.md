@@ -124,6 +124,12 @@ A brief description of what this project does and who it's for
 - create a newDishes and test theses API.
 - create request folder & put request files in it
 
+### 19. API Endpoint to Filter Dishes By Category
+
+- create searchByCategory route and controller
+
+### 20.
+
 ---
 
 ### 📚 MERN Stack References
