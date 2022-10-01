@@ -128,7 +128,9 @@ A brief description of what this project does and who it's for
 
 - create searchByCategory route and controller
 
-### 20.
+### 20. Deploy to Cloud - Heroku
+
+- deploy api-pariscafe to heroku
 
 ---
 
