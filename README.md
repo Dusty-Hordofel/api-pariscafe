@@ -138,7 +138,11 @@ A brief description of what this project does and who it's for
 
 - create user route and controller.
 - create a user model && controller->user.js
+
+### 22. API Endpoint User Creation - Testing
+
 - create user schema-validator.
+- create request->http.user.rest
 
 ---
 
