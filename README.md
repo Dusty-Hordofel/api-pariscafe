@@ -132,6 +132,14 @@ A brief description of what this project does and who it's for
 
 - deploy api-pariscafe to heroku
 
+## Section 2. Protecting your App
+
+### 21. API Endpoint - User Creation
+
+- create user route and controller.
+- create a user model && controller->user.js
+- create user schema-validator.
+
 ---
 
 ### 📚 MERN Stack References
