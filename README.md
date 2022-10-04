@@ -193,11 +193,11 @@ A brief description of what this project does and who it's for
 - update createOrder controller
 - test createOrder in htpp.order.rest
 
-### 33. End-End Testing - Order Creation
+### 3. Stripe Webhook - ORDER Fulfilment
 
-### 34. Order CANCEL Flow
-
-### 35. Stripe Webhook - ORDER Fulfilment
+- create payment route and controller.
+- add webhook endpoint using ngrok extension in stripe
+- test stripe webhook
 
 ### 36. Stripe Webhook - ORDER Fulfilment - Continued
 
@@ -250,11 +250,17 @@ A brief description of what this project does and who it's for
 - 🔗 [Stripe](https://www.npmjs.com/package/stripe)
 - 🔗 [uuid](https://www.npmjs.com/package/uuid)
 
+### 📚 Documentary References
+
+- 🔗 [Stripe](https://stripe.com/fr)
+- 🔗 [Stripe-payment](https://stripe.com/docs/checkout/quickstart)
+- 🔗 [Stripe-fulfill-orders](https://stripe.com/docs/payments/checkout/fulfill-orders)
+
 ### ⚙ Tools:
 
 - 🔗 [React Dev Tools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - 🔗 [Online Jpeg Tools](https://onlinejpgtools.com/convert-jpg-to-base64)
-- 🔗 [Stripe](https://stripe.com/fr)
+- 🔗 [ngrok for VSCode](https://marketplace.visualstudio.com/items?itemName=philnash.ngrok-for-vscode)
 
 ### ⚙ VS Code Extensions I Use:
 
