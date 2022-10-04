@@ -185,6 +185,8 @@ A brief description of what this project does and who it's for
 
 ### 31. API - Create Order
 
+- update createOrder controller
+
 ### 32. Testing Create Order
 
 ### 33. End-End Testing - Order Creation
