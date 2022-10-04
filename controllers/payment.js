@@ -1,14 +1,14 @@
 const Payment = require("../models/payment");
 const createError = require("http-errors");
-// const { shortenUrl } = require("../helpers/BitlyHelper");
+const { shortenUrl } = require("../helpers/BitlyHelper");
 const { sendMessage, createMessage } = require("../helpers/TwilioHelper");
 const Order = require("../models/order");
 
 exports.fulfilOrder = async (req, res, next) => {
-  console.log(
-    "🚀 ~ file: payment.js ~ line 3 ~ exports.fulfilOrder= ~ req",
-    req.body
-  );
+  //   console.log(
+  //     "🚀 ~ file: payment.js ~ line 3 ~ exports.fulfilOrder= ~ req",
+  //     req.body
+  //   );
 
   const event = req.body;
 
@@ -17,10 +17,10 @@ exports.fulfilOrder = async (req, res, next) => {
       const sessionCompleted = event.data.object;
 
       try {
-        console.log(
-          "🚀 ~ file: payment.js ~ line 17 ~ exports.fulfilOrder= ~ error",
-          sessionCompleted.payment_intent
-        );
+        // console.log(
+        //   "🚀 ~ file: payment.js ~ line 17 ~ exports.fulfilOrder= ~ error",
+        //   sessionCompleted.payment_intent
+        // );
 
         const payment = await Payment.findByIdAndUpdate(
           { _id: sessionCompleted.id },
@@ -31,22 +31,28 @@ exports.fulfilOrder = async (req, res, next) => {
         const order = await Order.findOne({
           checkout_session_id: sessionCompleted.id,
         });
-        const phone = "33760474076";
-        // const phone = order.address.phone;
+        const phone = order.address.phone;
 
-        const orderTrackingUrl = `${process.env.PARIS_URL}/orders/${order._id}`;
+        const orderTrackingUrl = `${process.env.PARIS_URL}/orders/${order._id}`; //shortUrl doesn't work whith localhost, we have to use netlify
         console.log(
-          "🚀 ~ file: payment.js ~ line 38 ~ exports.fulfilOrder= ~ orderTrackingUrl",
+          "🚀 ~ file: payment.js ~ line 37 ~ exports.fulfilOrder= ~ orderTrackingUrl",
           orderTrackingUrl
         );
 
         //TODO: get a tiny url
 
         // const tinyUrl = await shortenUrl(orderTrackingUrl);
+        // console.log(
+        //   "🚀 ~ file: payment.js ~ line 45 ~ exports.fulfilOrder= ~ tinyUrl",
+        //   tinyUrl
+        // );
 
         //todo: form a order success message
         const userMessage = createMessage(order._id, orderTrackingUrl);
-        // const userMessage = createMessage(order._id, tinyUrl);
+        console.log(
+          "🚀 ~ file: payment.js ~ line 49 ~ exports.fulfilOrder= ~ userMessage",
+          userMessage
+        );
 
         // todo: send the message
 
@@ -65,5 +71,5 @@ exports.fulfilOrder = async (req, res, next) => {
       break;
   }
 
-  res.status(200).json({ message: "Successfully Handled" });
+  //   res.status(200).json({ message: "Successfully Handled" });
 };

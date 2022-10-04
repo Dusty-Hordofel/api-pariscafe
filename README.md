@@ -218,7 +218,12 @@ A brief description of what this project does and who it's for
 
 ### 39. API Testing - ORDER Fulfilment
 
+- test twilio and bitly by receiving a message from twilio with short url.
+
 ### 40. API Security - Testing with JWT Tokens from auth0
+
+- crate a conditionnal rendering to extract user token in auth->AuthHelper.js
+  -use getUser() in createOrder controller
 
 ### 41. E-2-E Testing ORDER Fulfilment
 
