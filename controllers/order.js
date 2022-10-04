@@ -18,21 +18,20 @@ exports.createOrder = async (req, res, next) => {
       { amount: order_total, user_name: "Johny" },
       next
     );
-    console.log(
-      "🚀 ~ file: order.js ~ line 21 ~ exports.createOrder= ~ session",
-      session
-    );
+    // console.log(
+    //   "🚀 ~ file: order.js ~ line 21 ~ exports.createOrder= ~ session",
+    //   session
+    // );
 
     //TODO: create a new order in order collection
 
     // TODO: add the order object to the user collection
 
     // TODO: add payment object in payment collection
-
     res.status(201).json(session);
   } catch (error) {
     console.log(
-      "🚀 ~ file: order.js ~ line 27 ~ exports.createOrder= ~ error",
+      "🚀 ~ file: order.js ~ line 34 ~ exports.createOrder= ~ error",
       error
     );
     next(createError(error));

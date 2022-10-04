@@ -1,0 +1,50 @@
+#### create a new ordering, 1. create stripe session
+
+POST http://localhost:4310/api/orders
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJDSXljc3hSQ2N1c0FPbHhaYl9XayJ9.eyJpc3MiOiJodHRwczovL2luZGljYWZlLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJMazBzZTBSRkpsUnFkREZzeThkWVQxU3pSaDAxeDg4bUBjbGllbnRzIiwiYXVkIjoiaHR0cDovL2FwaS1pbmRpY2FmZSIsImlhdCI6MTYyNjExMjAyNiwiZXhwIjoxNjI2MTk4NDI2LCJhenAiOiJMazBzZTBSRkpsUnFkREZzeThkWVQxU3pSaDAxeDg4bSIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.QAqZEgA7agx_mohrTxwg8jUMZQ5dzYlS4jhyvtWhgBwvQtBMOciX4T64Nhr8JNtCIjjuKnjXSUIpQebQ25QGFeATcu1wTzEuYsm1-QXIdDgxOmAkT7A03_Rlw3e-ZuxjYKmZ2oMQ3q8eMndFf3bMkwQjfyaLLQoK5QZlVQ1gs99u7uzSeS5cBDO8CI1A5WISmHZ-0ulTGWBkG3IX0yCYL0G3trwywrnBJ9HBVtceYKQt2HtDaurzHjCsoW8GWea426YgFfyJlz0dgEWLWclnbAQR9Ofz1NQV0pDxXAcLNosbi7aeKxC7FeSZrWqQFlxPtsXIJvMWywFFRPW9zKFeiw
+
+{
+  "order_data": {
+    "dishes" : [
+      {
+      "_id": "123",
+      "name": "idli",
+      "description": "served with chutney and sambar",
+      "count" : "1",
+      "price": "25"
+      }
+    ], 
+    "address" :{
+      "full_name" : "Sam",
+      "line1" : "1st Ave",
+      "line2" : "",
+      "city" : "San Sebastian",
+      "zip" : "66033",
+      "state" : "CA",
+      "country" : "usa",
+      "phone" : "918217699518"
+    }, 
+    "order_total" : "120"
+
+  }
+}
+
+
+### update order status
+PUT http://localhost:7787/api/orders/cs_test_a1fLx9I3Llqw5YIE2kFGAz4iH85pxSlC0mqpDTBiwiGTbnfbSFphXvhJ2e
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InJDSXljc3hSQ2N1c0FPbHhaYl9XayJ9.eyJpc3MiOiJodHRwczovL2luZGljYWZlLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJMazBzZTBSRkpsUnFkREZzeThkWVQxU3pSaDAxeDg4bUBjbGllbnRzIiwiYXVkIjoiaHR0cDovL2FwaS1pbmRpY2FmZSIsImlhdCI6MTYyNjExMjAyNiwiZXhwIjoxNjI2MTk4NDI2LCJhenAiOiJMazBzZTBSRkpsUnFkREZzeThkWVQxU3pSaDAxeDg4bSIsImd0eSI6ImNsaWVudC1jcmVkZW50aWFscyJ9.QAqZEgA7agx_mohrTxwg8jUMZQ5dzYlS4jhyvtWhgBwvQtBMOciX4T64Nhr8JNtCIjjuKnjXSUIpQebQ25QGFeATcu1wTzEuYsm1-QXIdDgxOmAkT7A03_Rlw3e-ZuxjYKmZ2oMQ3q8eMndFf3bMkwQjfyaLLQoK5QZlVQ1gs99u7uzSeS5cBDO8CI1A5WISmHZ-0ulTGWBkG3IX0yCYL0G3trwywrnBJ9HBVtceYKQt2HtDaurzHjCsoW8GWea426YgFfyJlz0dgEWLWclnbAQR9Ofz1NQV0pDxXAcLNosbi7aeKxC7FeSZrWqQFlxPtsXIJvMWywFFRPW9zKFeiw
+
+
+
+
+
+
+
+
+
+
+
+

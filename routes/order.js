@@ -4,6 +4,6 @@ const { createOrder } = require("../controllers/order");
 
 const router = express.Router();
 
-router.post("/users", jwtChecker, createOrder);
+router.post("/orders", jwtChecker, createOrder);
 
 module.exports = router;

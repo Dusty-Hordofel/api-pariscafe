@@ -181,6 +181,8 @@ A brief description of what this project does and who it's for
 
 ### 30. Testing Stripe Integration
 
+- create htpp.order.rest
+
 ### 31. API - Create Order
 
 ### 32. Testing Create Order

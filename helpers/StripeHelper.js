@@ -7,7 +7,7 @@ const initiateCheckoutSession = async (paymentObj, next) => {
     paymentObj
   );
 
-  const PARISCAFE_DOMAIN = process.env.INDICAFE_DOMAIN;
+  const PARISCAFE_DOMAIN = process.env.PARISCAFE_DOMAIN;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -32,7 +32,7 @@ const initiateCheckoutSession = async (paymentObj, next) => {
     return session;
   } catch (error) {
     console.log(
-      "🚀 ~ file: StripeHelper.js ~ line 33 ~ initiateCheckoutSession ~ error",
+      "🚀 ~ file: StripeHelper.js ~ line 35 ~ initiateCheckoutSession ~ error",
       error
     );
 
