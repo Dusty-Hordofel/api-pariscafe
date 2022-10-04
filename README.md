@@ -164,17 +164,51 @@ A brief description of what this project does and who it's for
 
 - create {updateAddress,getUserAddress} route and controller
 
-### 27. Form Design - Address Data
+### 27. CI/CD - Deploy to Heroku and Netlify
 
-### 28. API Integration with Address Form Prefill
+## Section 4. Payments Workflow Design
 
-### 29. API Integration Address Form Prefill - Continued
+### 28. Intro to Stripe and Stripe Signup
 
-### 30. API Integration Address Save / Update
+### 29. Stripe Integration
 
-### 31. API Integration
+### 30. Testing Stripe Integration
 
-### 32. CI/CD - Deploy to Heroku and Netlify
+### 31. API - Create Order
+
+### 32. Testing Create Order
+
+### 33. End-End Testing - Order Creation
+
+### 34. Order CANCEL Flow
+
+### 35. Stripe Webhook - ORDER Fulfilment
+
+### 36. Stripe Webhook - ORDER Fulfilment - Continued
+
+### 37. ORDER Fulfilment - Messaging
+
+### 38. Tiny Url Service - Sign Up with Bitly
+
+### 39. API Testing - ORDER Fulfilment
+
+### 40. API Security - Testing with JWT Tokens from auth0
+
+### 41. E-2-E Testing ORDER Fulfilment
+
+### 42. API Dealing with ABANDONED Orders
+
+### 43. API Testing - ABANDONED Orders
+
+### 44. E-2-E Testing ABANDONED Orders
+
+### 45. CI / CD - Deploy to Cloud
+
+### 46. Testing ORDER , Payment Flows on Cloud
+
+### 47. Responsive Design
+
+### 48.
 
 ---
 
@@ -203,6 +237,7 @@ A brief description of what this project does and who it's for
 
 - 🔗 [React Dev Tools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - 🔗 [Online Jpeg Tools](https://onlinejpgtools.com/convert-jpg-to-base64)
+- 🔗 [Stripe](https://stripe.com/fr)
 
 ### ⚙ VS Code Extensions I Use:
 
