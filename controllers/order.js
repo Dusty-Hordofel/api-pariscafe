@@ -8,6 +8,74 @@ const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
 const { getUser } = require("../auth/AuthHelper");
 
+exports.updateOrderStatus = async (req, res, next) => {
+  const userId = getUser(req);
+
+  const order = req.order;
+  console.log(
+    "🚀 ~ file: order.js ~ line 17 ~ exports.updateOrderStatus= ~ order",
+    order
+  );
+
+  const updatedStatus = order.status;
+
+  const newEvent = { event: ORDER_ABANDONED, onDate: new Date() };
+  updatedStatus.push(newEvent);
+
+  try {
+    order.status = updatedStatus;
+
+    const updatedOrder = await order.save();
+
+    const user = await User.findById({ _id: userId });
+    const updatedOrderHistory = user.order_history;
+
+    const userOrder = updatedOrderHistory.find(
+      (user_order) => user_order._id === order._id
+    );
+    userOrder.status.push(newEvent);
+
+    await User.updateOne(
+      { _id: userId },
+      { order_history: updatedOrderHistory }
+    );
+
+    res
+      .status(200)
+      .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: order.js ~ line 42 ~ exports.updateOrderStatus= ~ error",
+      error
+    );
+
+    next(createError(error));
+  }
+};
+
+exports.getOrderById = async (req, res, next, id) => {
+  const criteria = {
+    $or: [{ _id: { $in: id } }, { checkout_session_id: { $in: id } }],
+  };
+
+  try {
+    const order = await Order.findOne(criteria);
+
+    if (!order) {
+      return next(createError(404, "Order not found"));
+    }
+
+    req.order = order;
+    next();
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: order.js ~ line 30 ~ exports.getOrderById= ~ error",
+      error
+    );
+    next(createError(error));
+  }
+};
+
 exports.createOrder = async (req, res, next) => {
   //TODO:create a checkout session for stripe and
   // TODO: redirect to stripe checkout page
