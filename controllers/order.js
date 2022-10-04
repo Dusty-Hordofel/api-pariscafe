@@ -43,6 +43,7 @@ exports.createOrder = async (req, res, next) => {
 
     // TODO: add the order object to the user collection
     const userFilter = { _id: "103862780491452796970" };
+
     const updateAction = { $push: { order_history: newOrder } };
 
     let updatedUser = await User.findOneAndUpdate(userFilter, updateAction, {
@@ -51,6 +52,10 @@ exports.createOrder = async (req, res, next) => {
 
     // TODO: add payment object in payment collection
     const payment = new Payment({ _id: session.id, order_id: orderId });
+    console.log(
+      "🚀 ~ file: order.js ~ line 55 ~ exports.createOrder= ~ payment",
+      payment
+    );
 
     await payment.save();
 
