@@ -227,6 +227,8 @@ A brief description of what this project does and who it's for
 
 ### 41. E-2-E Testing ORDER Fulfilment
 
+- test payment workflow
+
 ### 42. API Dealing with ABANDONED Orders
 
 ### 43. API Testing - ABANDONED Orders
