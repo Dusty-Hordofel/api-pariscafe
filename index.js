@@ -1,30 +1,32 @@
-const express = require('express');
-// const morgan = require('morgan');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const createError = require('http-errors');
-require('dotenv').config();
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const createError = require("http-errors");
+require("dotenv").config();
 
-const categoryRoutes = require('./routes/category');
-const dishRoutes = require('./routes/dish');
+const categoryRoutes = require("./routes/category");
+const dishRoutes = require("./routes/dish");
+const userRoutes = require("./routes/user");
 
 const app = express(); //to create a server
 
 //middleware
-// app.use(morgan('dev')); //to Server log
+app.use(morgan("dev")); //to Server log
 app.use(cors()); //to accept requests from any origin
-app.use(express.json({ limit: '3mb' })); //to receive json data
-app.use(express.urlencoded({ limit: '3mb', extended: true }));
+app.use(express.json({ limit: "3mb" })); //to receive json data
+app.use(express.urlencoded({ limit: "3mb", extended: true }));
 
 const PORT = process.env.PORT;
 const DATABASE = process.env.DATABASE;
-const PREFIX = '/' + process.env.PREFIX;
+const PREFIX = "/" + process.env.PREFIX;
 
 app.use(PREFIX, categoryRoutes);
 app.use(PREFIX, dishRoutes);
+app.use(PREFIX, userRoutes);
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello World!' });
+app.get("/", (req, res) => {
+  res.send({ message: "Hello World!" });
 });
 
 //connect to database
@@ -32,9 +34,9 @@ app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   try {
     await mongoose.connect(DATABASE);
-    console.log('Connected to Mongo...');
+    console.log("Connected to Mongo...");
   } catch (error) {
-    console.log('🚀 ~ file: index.js ~ line 26 ~ app.listen ~ error', error);
+    console.log("🚀 ~ file: index.js ~ line 26 ~ app.listen ~ error", error);
   }
 }); //to start the server
 
@@ -51,7 +53,7 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     error: {
       status: err.status || 500,
-      message: err.message || 'Internal Server Error',
+      message: err.message || "Internal Server Error",
     },
   });
 });

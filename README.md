@@ -132,6 +132,28 @@ A brief description of what this project does and who it's for
 
 - deploy api-pariscafe to heroku
 
+## Section 2. Protecting your App
+
+### 21. API Endpoint - User Creation
+
+- create user route and controller.
+- create a user model && controller->user.js
+
+### 22. API Endpoint User Creation - Testing
+
+- create user schema-validator.
+- create request->http.user.rest
+
+### 24. API Integration with auth0 security
+
+##### token validation
+
+- npm i express-jwt jwks-rsa
+- create auth-> jwt-checker.js
+- add token to the http.user.js and add request user object to createUser controller before testing the request.
+
+##### NB: jwt-express does not support all nodejs version & generate error. it's took me many times before finding errors.
+
 ---
 
 ### 📚 MERN Stack References
@@ -144,6 +166,7 @@ A brief description of what this project does and who it's for
 ### 📚 Middleware References
 
 - 🔗 [Express.js: Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
+- 🔗 [express-jwt: Using Middleware](https://www.npmjs.com/package/express-jwt)
 - 🔗 [cors](https://www.npmjs.com/package/cors)
 - 🔗 [morgan](https://www.npmjs.com/package/morgan)
 - 🔗 [http-errors](https://www.npmjs.com/package/http-errors)

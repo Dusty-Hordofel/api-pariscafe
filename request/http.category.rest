@@ -1,13 +1,13 @@
 ### get all categories
-GET http://localhost:4317/api/categories
+GET http://localhost:4310/api/categories
 Accept: application/json
 
 ### get invalid route
-GET http://localhost:4317/api/categories2
+GET http://localhost:4310/api/categories2
 Accept: application/json
 
 ### Create a new category
-POST  http://localhost:4317/api/categories
+POST  http://localhost:4310/api/categories
 Content-Type: application/json
 Accept: application/json
 
@@ -16,5 +16,5 @@ Accept: application/json
 }
 
 ### get category by id
-GET http://localhost:4317/api/categories/63340da816d64904482a6566
+GET http://localhost:4310/api/categories/63340da816d64904482a6566
 Accept: application/json
