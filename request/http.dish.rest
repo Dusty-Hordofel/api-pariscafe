@@ -12,20 +12,20 @@ Accept: application/json
 }
 
 ### get all the dishes
-GET http://localhost:4317/api/dishes
+GET http://localhost:4310/api/dishes
 Accept: application/json
 
 ### get dish by id
-GET http://localhost:4317/api/dishes/63353b76d5afffe8dc1439e0
+GET http://localhost:4310/api/dishes/63353b76d5afffe8dc1439e0
 Accept: application/json
 
 ### get photo
-GET http://localhost:4317/api/dishes/63353b76d5afffe8dc1439e0/photo
+GET http://localhost:4310/api/dishes/63353b76d5afffe8dc1439e0/photo
 Accept: image/jpeg
 
 
 ### find a dish by category
-POST http://localhost:4317/api/dishes/category/_search
+POST http://localhost:4310/api/dishes/category/_search
 Content-Type: application/json
 Accept: application/json
 
