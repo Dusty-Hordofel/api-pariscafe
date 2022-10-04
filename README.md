@@ -213,6 +213,9 @@ A brief description of what this project does and who it's for
 
 ### 38. Tiny Url Service - Sign Up with Bitly
 
+- npm install bitly && create helpers->BitlyHelper.js
+- update payment & order controllers
+
 ### 39. API Testing - ORDER Fulfilment
 
 ### 40. API Security - Testing with JWT Tokens from auth0
@@ -257,7 +260,8 @@ A brief description of what this project does and who it's for
 - 🔗 [MongooseJS](https://mongoosejs.com/)
 - 🔗 [Stripe](https://www.npmjs.com/package/stripe)
 - 🔗 [uuid](https://www.npmjs.com/package/uuid)
-- 🔗 [Twilio](https://www.twilio.com/fr/docs/sms/quickstart/node)
+- 🔗 [twilio](https://www.twilio.com/fr/docs/sms/quickstart/node)
+- 🔗 [bitly](https://dev.bitly.com/docs/tutorials/integrate-bitly-in-your-app/)
 
 ### 📚 Documentary References
 

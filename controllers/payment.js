@@ -1,7 +1,7 @@
 const Payment = require("../models/payment");
 const createError = require("http-errors");
-// const { shortenUrl } = require('../helpers/BitlyHelper');
-// const { sendMessage, createMessage } = require('../helpers/TwilioHelper');
+const { shortenUrl } = require("../helpers/BitlyHelper");
+const { sendMessage, createMessage } = require("../helpers/TwilioHelper");
 const Order = require("../models/order");
 
 exports.fulfilOrder = async (req, res, next) => {
@@ -11,23 +11,24 @@ exports.fulfilOrder = async (req, res, next) => {
   );
 
   const event = req.body;
+
   switch (event.type) {
     case "checkout.session.completed":
       const sessionCompleted = event.data.object;
 
       try {
         console.log(
-          "🚀 ~ file: payment.js ~ line 20 ~ exports.fulfilOrder= ~ error",
+          "🚀 ~ file: payment.js ~ line 17 ~ exports.fulfilOrder= ~ error",
           sessionCompleted.payment_intent
         );
-        //TODO: Update the payment intent
+
         const payment = await Payment.findByIdAndUpdate(
           { _id: sessionCompleted.id },
           { payment_intent: sessionCompleted.payment_intent }
         );
 
         //TODO: get the order id and phone number
-        /*const order = await Order.findOne({
+        const order = await Order.findOne({
           checkout_session_id: sessionCompleted.id,
         });
         const phone = order.address.phone;
@@ -43,10 +44,10 @@ exports.fulfilOrder = async (req, res, next) => {
 
         // todo: send the message
 
-        sendMessage(userMessage, phone);*/
+        sendMessage(userMessage, phone);
       } catch (error) {
         console.log(
-          "🚀 ~ file: payment.js ~ line 49 ~ exports.fulfilOrder= ~ error",
+          "🚀 ~ file: payment.js ~ line 23 ~ exports.fulfilOrder= ~ error",
           error
         );
         next(createError(error));
