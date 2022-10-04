@@ -164,17 +164,86 @@ A brief description of what this project does and who it's for
 
 - create {updateAddress,getUserAddress} route and controller
 
-### 27. Form Design - Address Data
+### 27. CI/CD - Deploy to Heroku and Netlify
 
-### 28. API Integration with Address Form Prefill
+## Section 4. Payments Workflow Design
 
-### 29. API Integration Address Form Prefill - Continued
+### 28. Intro to Stripe and Stripe Signup
 
-### 30. API Integration Address Save / Update
+- create a stripe payment & test a checkout stripepage.
 
-### 31. API Integration
+### 29. Stripe Integration
 
-### 32. CI/CD - Deploy to Heroku and Netlify
+- creat helpers-> StripeHelper.js
+- create order route and controller
+- create order model
+- create orderConstants
+
+### 30. Testing Stripe Integration
+
+- create htpp.order.rest
+
+### 31. API - Create Order
+
+- update createOrder controller
+
+### 32. Testing Create Order
+
+- create payment model
+- update createOrder controller
+- test createOrder in htpp.order.rest
+
+### 33. Stripe Webhook - ORDER Fulfilment
+
+- create payment route and controller.
+- add webhook endpoint using ngrok extension in stripe
+- test stripe webhook
+
+### 34. Stripe Webhook - ORDER Fulfilment - Continued
+
+- update fulfilOrder controller
+- test payment using client side
+
+### 37. ORDER Fulfilment - Messaging
+
+- update fulfilOrder controller
+- create twilio count
+- create helpers->TwilioHelper.js
+- npm install twilio
+
+### 38. Tiny Url Service - Sign Up with Bitly
+
+- npm install bitly && create helpers->BitlyHelper.js
+- update payment & order controllers
+
+### 39. API Testing - ORDER Fulfilment
+
+- test twilio and bitly by receiving a message from twilio with short url.
+
+### 40. API Security - Testing with JWT Tokens from auth0
+
+- crate a conditionnal rendering to extract user token in auth->AuthHelper.js
+  -use getUser() in createOrder controller
+
+### 41. E-2-E Testing ORDER Fulfilment
+
+- test payment workflow
+
+### 42. API Dealing with ABANDONED Orders
+
+- create {getOrderById,updateOrderStatus,} routes and contollers
+
+### 43. API Testing - ABANDONED Orders
+
+### 44. E-2-E Testing ABANDONED Orders
+
+### 45. CI / CD - Deploy to Cloud
+
+### 46. Testing ORDER , Payment Flows on Cloud
+
+### 47. Responsive Design
+
+### 48.
 
 ---
 
@@ -198,11 +267,24 @@ A brief description of what this project does and who it's for
 
 - 🔗 [dotenv](https://www.npmjs.com/package/dotenv)
 - 🔗 [MongooseJS](https://mongoosejs.com/)
+- 🔗 [Stripe](https://www.npmjs.com/package/stripe)
+- 🔗 [uuid](https://www.npmjs.com/package/uuid)
+- 🔗 [twilio](https://www.twilio.com/fr/docs/sms/quickstart/node)
+- 🔗 [bitly](https://dev.bitly.com/docs/tutorials/integrate-bitly-in-your-app/)
+
+### 📚 Documentary References
+
+- 🔗 [Stripe](https://stripe.com/fr)
+- 🔗 [Stripe-payment](https://stripe.com/docs/checkout/quickstart)
+- 🔗 [Stripe-fulfill-orders](https://stripe.com/docs/payments/checkout/fulfill-orders)
 
 ### ⚙ Tools:
 
 - 🔗 [React Dev Tools Extension for Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 - 🔗 [Online Jpeg Tools](https://onlinejpgtools.com/convert-jpg-to-base64)
+- 🔗 [Ngrok for VSCode](https://marketplace.visualstudio.com/items?itemName=philnash.ngrok-for-vscode)
+- 🔗 [Twilio](https://www.twilio.com/login)
+- 🔗 [Bitly](https://bitly.com/)
 
 ### ⚙ VS Code Extensions I Use:
 

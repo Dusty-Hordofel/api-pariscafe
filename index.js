@@ -1,5 +1,5 @@
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const createError = require("http-errors");
@@ -8,11 +8,13 @@ require("dotenv").config();
 const categoryRoutes = require("./routes/category");
 const dishRoutes = require("./routes/dish");
 const userRoutes = require("./routes/user");
+const orderRoutes = require("./routes/order");
+const paymentRoutes = require("./routes/payment");
 
 const app = express(); //to create a server
 
 //middleware
-// app.use(morgan("dev")); //to Server log
+app.use(morgan("dev")); //to Server log
 app.use(cors()); //to accept requests from any origin
 app.use(express.json({ limit: "3mb" })); //to receive json data
 app.use(express.urlencoded({ limit: "3mb", extended: true }));
@@ -24,6 +26,8 @@ const PREFIX = "/" + process.env.PREFIX;
 app.use(PREFIX, categoryRoutes);
 app.use(PREFIX, dishRoutes);
 app.use(PREFIX, userRoutes);
+app.use(PREFIX, orderRoutes);
+app.use(PREFIX, paymentRoutes);
 
 app.get("/", (req, res) => {
   res.send({ message: "Hello World!" });

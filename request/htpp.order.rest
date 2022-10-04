@@ -1,0 +1,50 @@
+#### create a new ordering, 1. create stripe session
+
+POST http://localhost:4310/api/orders
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkFWZmxpUGNDb3Z0SUt0QVF1LXlVYyJ9.eyJpc3MiOiJodHRwczovL2Rldi0zbTN2Z2RpdS51cy5hdXRoMC5jb20vIiwic3ViIjoiOUx4dEVCWWc5MU84Q2c3QU5IQkI5b1pUN2ZxQlREeDBAY2xpZW50cyIsImF1ZCI6Imh0dHAvL2FwaS1wYXJpc2NhZmUiLCJpYXQiOjE2NjQ4NzMyODksImV4cCI6MTY2NDk1OTY4OSwiYXpwIjoiOUx4dEVCWWc5MU84Q2c3QU5IQkI5b1pUN2ZxQlREeDAiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.OKLLx3tOXHYH-IlLHZjfCT5N04riwd2BxGGcNx7IklES2dD-xwmd1CMY83RIqQacKkkOebULgfnnfQXfRPXEacQzKr9tijZ5t5J9gUVG5NgqQFR0LMmOpQkYcOg9v5a_knX5qRf63VWoxnRM_mbEdHZbJev7rOMHnJ9qxvcsgvpFfN2EomOf_Gyi5eyRL4VxIgdF4_cqR3eEVGp1X_7sIESbySVO74tJ6-bx1G2R0qkVVphszd5ms_jTI4-HelXjtWZVxHB1VSjBZfl5PU_52dgpescK7zD1zovqdlcDawaJsm_G8c440HnEHfjj9FEujt83SyaIFXL9TiMHU9aQlw
+
+{
+  "order_data": {
+    "dishes" : [
+      {
+      "_id": "123",
+      "name": "idli",
+      "description": "served with chutney and sambar",
+      "count" : "1",
+      "price": "25"
+      }
+    ], 
+    "address" :{
+      "full_name" : "Sam",
+      "line1" : "1st Ave",
+      "line2" : "",
+      "city" : "San Sebastian",
+      "zip" : "66033",
+      "state" : "CA",
+      "country" : "usa",
+      "phone" : "918217699518"
+    }, 
+    "order_total" : "120"
+
+  }
+}
+
+
+### update order status
+PUT http://localhost:7787/api/orders/cs_test_a1fLx9I3Llqw5YIE2kFGAz4iH85pxSlC0mqpDTBiwiGTbnfbSFphXvhJ2e
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkFWZmxpUGNDb3Z0SUt0QVF1LXlVYyJ9.eyJpc3MiOiJodHRwczovL2Rldi0zbTN2Z2RpdS51cy5hdXRoMC5jb20vIiwic3ViIjoiOUx4dEVCWWc5MU84Q2c3QU5IQkI5b1pUN2ZxQlREeDBAY2xpZW50cyIsImF1ZCI6Imh0dHAvL2FwaS1wYXJpc2NhZmUiLCJpYXQiOjE2NjQ4NzMyODksImV4cCI6MTY2NDk1OTY4OSwiYXpwIjoiOUx4dEVCWWc5MU84Q2c3QU5IQkI5b1pUN2ZxQlREeDAiLCJndHkiOiJjbGllbnQtY3JlZGVudGlhbHMifQ.OKLLx3tOXHYH-IlLHZjfCT5N04riwd2BxGGcNx7IklES2dD-xwmd1CMY83RIqQacKkkOebULgfnnfQXfRPXEacQzKr9tijZ5t5J9gUVG5NgqQFR0LMmOpQkYcOg9v5a_knX5qRf63VWoxnRM_mbEdHZbJev7rOMHnJ9qxvcsgvpFfN2EomOf_Gyi5eyRL4VxIgdF4_cqR3eEVGp1X_7sIESbySVO74tJ6-bx1G2R0qkVVphszd5ms_jTI4-HelXjtWZVxHB1VSjBZfl5PU_52dgpescK7zD1zovqdlcDawaJsm_G8c440HnEHfjj9FEujt83SyaIFXL9TiMHU9aQlw
+
+
+
+
+
+
+
+
+
+
+
+
