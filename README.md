@@ -154,6 +154,26 @@ A brief description of what this project does and who it's for
 
 ##### NB: jwt-express does not support all nodejs version & generate error. it's took me many times before finding errors.
 
+## Section 3. Preparing for Checkout
+
+### 25. API Endpoint - Address Capture
+
+- create {fetchById,getUserById} route and controller
+
+### 26. Mongo Model Update
+
+### 27. Form Design - Address Data
+
+### 28. API Integration with Address Form Prefill
+
+### 29. API Integration Address Form Prefill - Continued
+
+### 30. API Integration Address Save / Update
+
+### 31. API Integration
+
+### 32. CI/CD - Deploy to Heroku and Netlify
+
 ---
 
 ### 📚 MERN Stack References
