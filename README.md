@@ -233,11 +233,9 @@ A brief description of what this project does and who it's for
 
 - create {getOrderById,updateOrderStatus,} routes and contollers
 
-### 43. API Testing - ABANDONED Orders
+### 43. CI / CD - Deploy to Cloud
 
-### 44. E-2-E Testing ABANDONED Orders
-
-### 45. CI / CD - Deploy to Cloud
+- api-pariscafe deployed on Heroku
 
 ### 46. Testing ORDER , Payment Flows on Cloud
 
