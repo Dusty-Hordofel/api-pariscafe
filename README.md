@@ -170,7 +170,14 @@ A brief description of what this project does and who it's for
 
 ### 28. Intro to Stripe and Stripe Signup
 
+- create a stripe payment & test a checkout stripepage.
+
 ### 29. Stripe Integration
+
+- creat helpers-> StripeHelper.js
+- create order route and controller
+- create order model
+- create orderConstants
 
 ### 30. Testing Stripe Integration
 
@@ -232,6 +239,8 @@ A brief description of what this project does and who it's for
 
 - 🔗 [dotenv](https://www.npmjs.com/package/dotenv)
 - 🔗 [MongooseJS](https://mongoosejs.com/)
+- 🔗 [Stripe](https://www.npmjs.com/package/stripe)
+- 🔗 [uuid](https://www.npmjs.com/package/uuid)
 
 ### ⚙ Tools:
 

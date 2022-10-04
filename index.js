@@ -8,6 +8,7 @@ require("dotenv").config();
 const categoryRoutes = require("./routes/category");
 const dishRoutes = require("./routes/dish");
 const userRoutes = require("./routes/user");
+const orderRoutes = require("./routes/order");
 
 const app = express(); //to create a server
 
@@ -24,6 +25,7 @@ const PREFIX = "/" + process.env.PREFIX;
 app.use(PREFIX, categoryRoutes);
 app.use(PREFIX, dishRoutes);
 app.use(PREFIX, userRoutes);
+app.use(PREFIX, orderRoutes);
 
 app.get("/", (req, res) => {
   res.send({ message: "Hello World!" });
