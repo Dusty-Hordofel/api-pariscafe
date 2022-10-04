@@ -1,6 +1,6 @@
 const Payment = require("../models/payment");
 const createError = require("http-errors");
-const { shortenUrl } = require("../helpers/BitlyHelper");
+// const { shortenUrl } = require("../helpers/BitlyHelper");
 const { sendMessage, createMessage } = require("../helpers/TwilioHelper");
 const Order = require("../models/order");
 
@@ -31,16 +31,22 @@ exports.fulfilOrder = async (req, res, next) => {
         const order = await Order.findOne({
           checkout_session_id: sessionCompleted.id,
         });
-        const phone = order.address.phone;
+        const phone = "33760474076";
+        // const phone = order.address.phone;
 
-        const orderTrackingUrl = `${process.env.FE_URL}/orders/${order._id}`;
+        const orderTrackingUrl = `${process.env.PARIS_URL}/orders/${order._id}`;
+        console.log(
+          "🚀 ~ file: payment.js ~ line 38 ~ exports.fulfilOrder= ~ orderTrackingUrl",
+          orderTrackingUrl
+        );
 
         //TODO: get a tiny url
 
-        const tinyUrl = await shortenUrl(orderTrackingUrl);
+        // const tinyUrl = await shortenUrl(orderTrackingUrl);
 
         //todo: form a order success message
-        const userMessage = createMessage(order._id, tinyUrl);
+        const userMessage = createMessage(order._id, orderTrackingUrl);
+        // const userMessage = createMessage(order._id, tinyUrl);
 
         // todo: send the message
 
