@@ -2,6 +2,7 @@ const { initiateCheckoutSession } = require("../helpers/StripeHelper");
 const createError = require("http-errors");
 const User = require("../models/user");
 const Order = require("../models/order");
+const Payment = require("../models/payment");
 const { v4: uuidv4 } = require("uuid");
 const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
@@ -49,7 +50,12 @@ exports.createOrder = async (req, res, next) => {
     });
 
     // TODO: add payment object in payment collection
-    res.status(201).json(session);
+    const payment = new Payment({ _id: session.id, order_id: orderId });
+
+    await payment.save();
+
+    res.status(201).json({ redirect: session.url }); //redirect to payment
+    // res.status(201).json(session);
   } catch (error) {
     console.log(
       "🚀 ~ file: order.js ~ line 34 ~ exports.createOrder= ~ error",

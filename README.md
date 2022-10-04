@@ -189,6 +189,10 @@ A brief description of what this project does and who it's for
 
 ### 32. Testing Create Order
 
+- create payment model
+- update createOrder controller
+- test createOrder in htpp.order.rest
+
 ### 33. End-End Testing - Order Creation
 
 ### 34. Order CANCEL Flow
