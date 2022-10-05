@@ -241,7 +241,31 @@ A brief description of what this project does and who it's for
 
 ### 47. Responsive Design
 
-### 48.
+## Section 5. ORDER Management Workflow
+
+### 48. Designing ORDER Component
+
+- create user oder route and controller
+
+### 49. API - Retrieve user specific ORDERS
+
+### 50. UI Integration with API
+
+### 51. Display ORDERs in Accordion Component
+
+### 52. Protected Routes, Forced Authentication
+
+### 53. UI - ORDER Component Design
+
+### 54. UI - ORDER Component Design Continued
+
+### 55. UI - ORDER Component Design Continued
+
+### 56. UI - Responsive Design
+
+### 57. De-selecting ABANDONED Orders
+
+### 58. CI / CD - Deploy to Cloud
 
 ---
 

@@ -90,16 +90,20 @@ exports.createOrder = async (req, res, next) => {
   const status = { event: ORDER_PLACED, onDate: new Date() };
 
   const userId = getUser(req);
+  console.log(
+    "🚀 ~ file: order.js ~ line 23 ~ exports.createOrder= ~ userId ",
+    userId
+  );
 
   try {
     const session = await initiateCheckoutSession(
       { amount: order_total, user_name: address.full_name },
       next
     );
-    console.log(
-      "🚀 ~ file: order.js ~ line 21 ~ exports.createOrder= ~ session",
-      session
-    );
+    // console.log(
+    //   "🚀 ~ file: order.js ~ line 21 ~ exports.createOrder= ~ session",
+    //   session
+    // );
 
     //TODO: create a new order in order collection
 
@@ -111,6 +115,10 @@ exports.createOrder = async (req, res, next) => {
       total: order_total,
       address: address,
     });
+    console.log(
+      "🚀 ~ file: order.js ~ line 48 ~ exports.createOrder= ~ order",
+      order
+    );
 
     order.status.push(status);
 
@@ -129,6 +137,10 @@ exports.createOrder = async (req, res, next) => {
     const payment = new Payment({ _id: session.id, order_id: orderId });
 
     await payment.save();
+    console.log(
+      "🚀 ~ file: order.js ~ line 70 ~ exports.createOrder= ~ payment",
+      payment
+    );
 
     res.status(201).json({ redirect: session.url });
   } catch (error) {
