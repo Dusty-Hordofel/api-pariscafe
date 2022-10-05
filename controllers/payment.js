@@ -32,6 +32,10 @@ exports.fulfilOrder = async (req, res, next) => {
           checkout_session_id: sessionCompleted.id,
         });
         const phone = order.address.phone;
+        console.log(
+          "🚀 ~ file: payment.js ~ line 35 ~ exports.fulfilOrder= ~ phone",
+          phone
+        );
 
         const orderTrackingUrl = `${process.env.PARIS_URL}/orders/${order._id}`; //shortUrl doesn't work whith localhost, we have to use netlify
         console.log(
@@ -41,14 +45,14 @@ exports.fulfilOrder = async (req, res, next) => {
 
         //TODO: get a tiny url
 
-        // const tinyUrl = await shortenUrl(orderTrackingUrl);
+        const tinyUrl = await shortenUrl(orderTrackingUrl);
         // console.log(
         //   "🚀 ~ file: payment.js ~ line 45 ~ exports.fulfilOrder= ~ tinyUrl",
         //   tinyUrl
         // );
 
-        //todo: form a order success message
-        const userMessage = createMessage(order._id, orderTrackingUrl);
+        //TODO: form a order success message
+        const userMessage = createMessage(order._id, tinyUrl);
         console.log(
           "🚀 ~ file: payment.js ~ line 49 ~ exports.fulfilOrder= ~ userMessage",
           userMessage
