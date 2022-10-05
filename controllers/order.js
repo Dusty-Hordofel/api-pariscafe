@@ -88,10 +88,10 @@ exports.createOrder = async (req, res, next) => {
   const status = { event: ORDER_PLACED, onDate: new Date() };
 
   const userId = getUser(req);
-  // console.log(
-  //   "🚀 ~ file: order.js ~ line 23 ~ exports.createOrder= ~ userId ",
-  //   userId
-  // );
+  console.log(
+    "🚀 ~ file: order.js ~ line 23 ~ exports.createOrder= ~ userId ",
+    userId
+  );
 
   try {
     const session = await initiateCheckoutSession(
@@ -113,10 +113,10 @@ exports.createOrder = async (req, res, next) => {
       total: order_total,
       address: address,
     });
-    // console.log(
-    //   "🚀 ~ file: order.js ~ line 48 ~ exports.createOrder= ~ order",
-    //   order
-    // );
+    console.log(
+      "🚀 ~ file: order.js ~ line 48 ~ exports.createOrder= ~ order",
+      order
+    );
 
     order.status.push(status);
 
