@@ -8,7 +8,75 @@ const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
 const { getUser } = require("../auth/AuthHelper");
 
-exports.getMyOrders = async (req, res, next) => {};
+exports.getMyOrders = async (req, res, next) => {
+  const userId = getUser(req);
+  const limit = parseInt(req.query.limit) || 10;
+
+  try {
+    const orders = await User.aggregate([
+      { $match: { _id: userId } },
+      // { $match: { _id: "103862780491452796970" } },
+      { $unwind: "$order_history" },
+      { $sort: { "order_history.createdAt": -1 } },
+      // { $addFields: { lastStatus: { $last: "$order_history.status" } } },
+      // { $match: { "lastStatus.event": { $not: { $eq: ORDER_ABANDONED } } } },
+      { $limit: limit },
+      {
+        $group: {
+          _id: userId,
+          // _id: "103862780491452796970",
+          orders: { $push: "$order_history" },
+        },
+      },
+      { $project: { _id: 0, orders: 1 } },
+    ]);
+
+    res.status(200).json(orders[0]);
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: order.js ~ line 39 ~ exports.getMyOrders= ~ error",
+      error
+    );
+
+    next(createError(error));
+  }
+};
+
+// exports.getMyOrders = async (req, res, next) => {
+//   const userId = getUser(req); //get the userId
+//   const limit = parseInt(req.query.limit) || 10;
+
+//   try {
+// const orders = await User.aggregate([
+//   { $match: { _id: userId } }, //$match:Filters the documents to pass only the documents that match the specified condition(s) to the next pipeline stage.
+//   { $unwind: "$order_history" }, //$unwind:Deconstructs an array field from the input documents to output a document for each element. Each output document is the input document with the value of the array field replaced by the element.
+//   { $sort: { "order_history.createdAt": -1 } }, //$sort : sorts
+//   // { $addFields: { lastStatus: { $last: "$order_history.status" } } },
+//   // { $match: { "lastStatus.event": { $not: { $eq: ORDER_ABANDONED } } } },
+//   { $limit: 10 },
+//   { $group: { _id: userId, orders: { $push: "$order_history" } } },
+//   { $project: { _id: 0, orders: 1 } },
+// ]);
+
+//     const orders = await User.aggregate([
+//       { $match: { _id: userId } },
+//       { $unwind: "$order_history" },
+//       { $limit: 10 },
+//       { $sort: { "order_history.createdAt": -1 } },
+//       { $group: { _id: userId, orders: { $push: "$order_history" } } },
+//       { $project: { _id: 0, orders: 1 } },
+//     ]);
+
+//     res.status(200).json(orders[0]);
+//   } catch (error) {
+//     console.log(
+//       "🚀 ~ file: order.js ~ line 39 ~ exports.getMyOrders= ~ error",
+//       error
+//     );
+
+//     next(createError(error));
+//   }
+// };
 
 exports.updateOrderStatus = async (req, res, next) => {
   const userId = getUser(req);
