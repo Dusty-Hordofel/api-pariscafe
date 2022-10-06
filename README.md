@@ -249,7 +249,7 @@ A brief description of what this project does and who it's for
 
 ### 49. API - Retrieve user specific ORDERS
 
-### 50. UI Integration with API
+- use aggregate MongoDB to retrieve user specific user orders
 
 ### 51. Display ORDERs in Accordion Component
 
