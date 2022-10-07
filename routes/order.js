@@ -5,6 +5,7 @@ const {
   getOrderById,
   updateOrderStatus,
   getMyOrders,
+  getOrdersForAdmin,
 } = require("../controllers/order");
 
 const router = express.Router();
@@ -16,4 +17,5 @@ router.get("/orders", jwtChecker, getMyOrders);
 router.param("id", getOrderById);
 
 router.put("/orders/:id", jwtChecker, updateOrderStatus); //related to getOrderById
+router.get("/orders/admin", jwtChecker, getOrdersForAdmin);
 module.exports = router;

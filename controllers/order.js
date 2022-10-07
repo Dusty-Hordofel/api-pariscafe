@@ -8,6 +8,8 @@ const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
 const { getUser } = require("../auth/AuthHelper");
 
+exports.getOrdersForAdmin = async (req, res, next) => {};
+
 exports.getMyOrders = async (req, res, next) => {
   const userId = getUser(req);
   const limit = parseInt(req.query.limit) || 10;
