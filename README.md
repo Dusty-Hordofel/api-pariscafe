@@ -241,13 +241,30 @@ A brief description of what this project does and who it's for
 
 ### 47. Responsive Design
 
-### 48.
+## Section 5. ORDER Management Workflow
+
+### 48. Designing ORDER Component
+
+- create user oder route and controller
+
+### 49. API - Retrieve user specific ORDERS
+
+- use aggregate MongoDB to retrieve user specific user orders
+
+### 50. De-selecting ABANDONED Orders
+
+- update order controller
+
+### 58. CI / CD - Deploy to Cloud
 
 ---
 
 ### 📚 MERN Stack References
 
 - 🔗 [Official Site for MongoDB](https://mongodb.com)
+- 🔗 [Official Site for MongoDB - Aggregation](https://www.mongodb.com/docs/manual/aggregation/)
+- 🔗 [Official Site for MongoDB - Aggregation](https://www.mongodb.com/basics/aggregation)
+- 🔗 [Tutorialspoint MongoDB - Learning](https://www.tutorialspoint.com/mongodb/mongodb_aggregation.htm)
 - 🔗 [Official Site for Express.js](https://expressjs.com)
 - 🔗 [Official Site for React.js](https://reactjs.org)
 - 🔗 [Official Site for Node.js](https://nodejs.org/)

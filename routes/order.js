@@ -4,11 +4,14 @@ const {
   createOrder,
   getOrderById,
   updateOrderStatus,
+  getMyOrders,
 } = require("../controllers/order");
 
 const router = express.Router();
 
 router.post("/orders", jwtChecker, createOrder);
+
+router.get("/orders", jwtChecker, getMyOrders);
 
 router.param("id", getOrderById);
 
