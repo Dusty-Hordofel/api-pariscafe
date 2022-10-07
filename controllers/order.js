@@ -18,8 +18,8 @@ exports.getMyOrders = async (req, res, next) => {
 
       { $unwind: "$order_history" }, //$unwind:Deconstructs an array field from the input documents to output a document for each element. Each output document is the input document with the value of the array field replaced by the element.
       { $sort: { "order_history.createdAt": -1 } },
-      // { $addFields: { lastStatus: { $last: "$order_history.status" } } },
-      // { $match: { "lastStatus.event": { $not: { $eq: ORDER_ABANDONED } } } },
+      { $addFields: { lastStatus: { $last: "$order_history.status" } } },
+      { $match: { "lastStatus.event": { $not: { $eq: ORDER_ABANDONED } } } },
       { $limit: limit },
       {
         $group: {

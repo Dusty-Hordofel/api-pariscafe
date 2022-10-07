@@ -251,19 +251,9 @@ A brief description of what this project does and who it's for
 
 - use aggregate MongoDB to retrieve user specific user orders
 
-### 51. Display ORDERs in Accordion Component
+### 50. De-selecting ABANDONED Orders
 
-### 52. Protected Routes, Forced Authentication
-
-### 53. UI - ORDER Component Design
-
-### 54. UI - ORDER Component Design Continued
-
-### 55. UI - ORDER Component Design Continued
-
-### 56. UI - Responsive Design
-
-### 57. De-selecting ABANDONED Orders
+- update order controller
 
 ### 58. CI / CD - Deploy to Cloud
 
