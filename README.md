@@ -282,11 +282,13 @@ A brief description of what this project does and who it's for
 
 - Accept request from the frontend
 
-### 59. UI Integration - ACCEPT Flow
+### 57. UI Testing ACCEPT Flow
 
-### 60. UI Testing ACCEPT Flow
+- test all script
 
-### 61. CI/CD - Deploy to Cloud
+### 58. CI/CD - Deploy to Cloud
+
+- deployed to Heroku cloud
 
 ---
 
