@@ -268,8 +268,11 @@ A brief description of what this project does and who it's for
 ### 53. ADMIN Profile , Retrieve ORDERS
 
 - create {admin} route and controller.
+- npm i express-jwt-authz
 
 ### 54. Implementing API Security with JWT Tokens
+
+- update getOrdersForAdmin controller
 
 ### 55. . Implementing Authorization - embedding SCOPEs in JWT tokens
 

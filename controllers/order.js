@@ -8,7 +8,46 @@ const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
 const { getUser } = require("../auth/AuthHelper");
 
-exports.getOrdersForAdmin = async (req, res, next) => {};
+exports.getOrdersForAdmin = async (req, res, next) => {
+  const status = req.query.status || ORDER_PLACED;
+
+  const limit = parseInt(req.query.limit) || 10;
+
+  var query = {
+    $expr: {
+      $eq: [
+        {
+          $last: "$status.event", //$last helps us to
+        },
+        status,
+      ],
+    },
+  };
+
+  var projections = {
+    _id: 1,
+    status: 1,
+    contents: 1,
+    total: 1,
+    address: 1,
+  };
+
+  var options = { sort: { createdAt: -1 }, limit, skip: 0 };
+
+  try {
+    const orders = await Order.find(query, projections, options);
+    if (orders.length === 0)
+      throw createError(404, "No Orders found for this criteria");
+
+    res.status(200).json(orders);
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: order.js ~ line 60 ~ exports.getOrdersForAdmin= ~ error",
+      error
+    );
+    next(createError(error));
+  }
+};
 
 exports.getMyOrders = async (req, res, next) => {
   const userId = getUser(req);
