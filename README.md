@@ -274,15 +274,13 @@ A brief description of what this project does and who it's for
 
 - update getOrdersForAdmin controller
 
-### 55. . Implementing Authorization - embedding SCOPEs in JWT tokens
+### 55. Implementing Authorization - embedding SCOPEs in JWT tokens
 
 - use jwtAuthz in getOrdersForAdmin controller
 
-### 56. Display ADMIN Orders, Implement Filter Logic
+### 56. API Implement ACCEPT Orders Flow
 
-### 57. Implement Filter Orders on STATE
-
-### 58. API Implement ACCEPT Orders Flow
+- Accept request from the frontend
 
 ### 59. UI Integration - ACCEPT Flow
 

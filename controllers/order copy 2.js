@@ -17,7 +17,7 @@ exports.getOrdersForAdmin = async (req, res, next) => {
     $expr: {
       $eq: [
         {
-          $last: "$status.event",
+          $last: "$status.event", //$last helps us to
         },
         status,
       ],
@@ -55,13 +55,20 @@ exports.getMyOrders = async (req, res, next) => {
 
   try {
     const orders = await User.aggregate([
-      { $match: { _id: userId } },
-      { $unwind: "$order_history" },
+      { $match: { _id: userId } }, //$match:Filters the documents to pass only the documents that match the specified condition(s) to the next pipeline stage.
+
+      { $unwind: "$order_history" }, //$unwind:Deconstructs an array field from the input documents to output a document for each element. Each output document is the input document with the value of the array field replaced by the element.
       { $sort: { "order_history.createdAt": -1 } },
       { $addFields: { lastStatus: { $last: "$order_history.status" } } },
       { $match: { "lastStatus.event": { $not: { $eq: ORDER_ABANDONED } } } },
       { $limit: limit },
-      { $group: { _id: userId, orders: { $push: "$order_history" } } },
+      {
+        $group: {
+          _id: userId,
+
+          orders: { $push: "$order_history" },
+        },
+      },
       { $project: { _id: 0, orders: 1 } },
     ]);
 
@@ -78,48 +85,52 @@ exports.getMyOrders = async (req, res, next) => {
 
 exports.updateOrderStatus = async (req, res, next) => {
   const userId = getUser(req);
+  console.log(
+    "🚀 ~ file: order.js ~ line 83 ~ exports.updateOrderStatus= ~ userId",
+    userId
+  );
 
   const order = req.order;
+  console.log(
+    "🚀 ~ file: order.js ~ line 17 ~ exports.updateOrderStatus= ~ order",
+    order
+  );
 
-  const { new_status } = req.body;
-
-  const updatedOrder = await updateStatus(order, new_status, next);
-
-  res
-    .status(200)
-    .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
-};
-
-async function updateStatus(order, newStatus, next) {
   const updatedStatus = order.status;
 
-  const newEvent = { event: newStatus, onDate: new Date() };
-
+  const newEvent = { event: ORDER_ABANDONED, onDate: new Date() };
   updatedStatus.push(newEvent);
 
   try {
     order.status = updatedStatus;
+
     const updatedOrder = await order.save();
-    const user = await User.findById({ _id: order.placedBy });
 
-    const updateOrderHistory = user.order_history;
+    const user = await User.findById({ _id: userId });
+    const updatedOrderHistory = user.order_history;
 
-    const userOrder = updateOrderHistory.find(
+    const userOrder = updatedOrderHistory.find(
       (user_order) => user_order._id === order._id
     );
     userOrder.status.push(newEvent);
 
     await User.updateOne(
-      { _id: order.placedBy },
-      { order_history: updateOrderHistory }
+      { _id: userId },
+      { order_history: updatedOrderHistory }
     );
 
-    return updatedOrder;
+    res
+      .status(200)
+      .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
   } catch (error) {
-    console.log("🚀 ~ file: order.js ~ line 152 ~ updateStatus ~ error", error);
+    console.log(
+      "🚀 ~ file: order.js ~ line 42 ~ exports.updateOrderStatus= ~ error",
+      error
+    );
+
     next(createError(error));
   }
-}
+};
 
 exports.getOrderById = async (req, res, next, id) => {
   const criteria = {
@@ -156,6 +167,10 @@ exports.createOrder = async (req, res, next) => {
   const status = { event: ORDER_PLACED, onDate: new Date() };
 
   const userId = getUser(req);
+  console.log(
+    "🚀 ~ file: order.js ~ line 165 ~ exports.createOrder= ~ userId",
+    userId
+  );
 
   try {
     const session = await initiateCheckoutSession(
