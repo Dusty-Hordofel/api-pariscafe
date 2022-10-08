@@ -276,6 +276,8 @@ A brief description of what this project does and who it's for
 
 ### 55. . Implementing Authorization - embedding SCOPEs in JWT tokens
 
+- use jwtAuthz in getOrdersForAdmin controller
+
 ### 56. Display ADMIN Orders, Implement Filter Logic
 
 ### 57. Implement Filter Orders on STATE
