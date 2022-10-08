@@ -255,7 +255,40 @@ A brief description of what this project does and who it's for
 
 - update order controller
 
-### 58. CI / CD - Deploy to Cloud
+### 51. CI / CD - Deploy to Cloud
+
+- app deployed to Heroku cloud
+
+## Section 6. ORDER Management ADMIN interface
+
+### 52. Intro - ADMIN Interface
+
+- create roles in Auth0 website & set auth pipeline setttings
+
+### 53. ADMIN Profile , Retrieve ORDERS
+
+- create {admin} route and controller.
+- npm i express-jwt-authz
+
+### 54. Implementing API Security with JWT Tokens
+
+- update getOrdersForAdmin controller
+
+### 55. Implementing Authorization - embedding SCOPEs in JWT tokens
+
+- use jwtAuthz in getOrdersForAdmin controller
+
+### 56. API Implement ACCEPT Orders Flow
+
+- Accept request from the frontend
+
+### 57. UI Testing ACCEPT Flow
+
+- test all script
+
+### 58. CI/CD - Deploy to Cloud
+
+- deployed to Heroku cloud
 
 ---
 
@@ -273,6 +306,7 @@ A brief description of what this project does and who it's for
 
 - 🔗 [Express.js: Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
 - 🔗 [express-jwt: Using Middleware](https://www.npmjs.com/package/express-jwt)
+- 🔗 [express-jwt-authz: Using Middleware](https://www.npmjs.com/package/express-jwt-authz)
 - 🔗 [cors](https://www.npmjs.com/package/cors)
 - 🔗 [morgan](https://www.npmjs.com/package/morgan)
 - 🔗 [http-errors](https://www.npmjs.com/package/http-errors)
@@ -292,6 +326,7 @@ A brief description of what this project does and who it's for
 - 🔗 [Stripe](https://stripe.com/fr)
 - 🔗 [Stripe-payment](https://stripe.com/docs/checkout/quickstart)
 - 🔗 [Stripe-fulfill-orders](https://stripe.com/docs/payments/checkout/fulfill-orders)
+- 🔗 [Auth0-Roles](https://auth0.com/docs/manage-users/access-control/sample-use-cases-rules-with-authorization)
 
 ### ⚙ Tools:
 
