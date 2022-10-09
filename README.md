@@ -290,6 +290,42 @@ A brief description of what this project does and who it's for
 
 - deployed to Heroku cloud
 
+## Section 7. ORDER Refund Flow
+
+### 59. API - CANCEL Order
+
+- create processRefund payment controller && cancelOrder()
+- update payment model
+
+### 60. Testing CANCEL Order
+
+- Testing cancel order payments
+- update stripeHelper,order route annd controller
+
+### 61. REFUND Stripe Webhook event
+
+- create a new Twilio message template
+
+### 62. UI Integration - CANCEL Flow
+
+### 63. E-2-E Testing CANCEL Flow
+
+### 64. CI/CD - Deploy to Cloud
+
+## Section 8. ORDER State Refresh - On Demand - Pull Model
+
+### 65.
+
+### 66.
+
+### 67.
+
+### 68.
+
+### 69.
+
+### 70.
+
 ---
 
 ### 📚 MERN Stack References
@@ -326,6 +362,7 @@ A brief description of what this project does and who it's for
 - 🔗 [Stripe](https://stripe.com/fr)
 - 🔗 [Stripe-payment](https://stripe.com/docs/checkout/quickstart)
 - 🔗 [Stripe-fulfill-orders](https://stripe.com/docs/payments/checkout/fulfill-orders)
+- 🔗 [Stripe-Refund]()
 - 🔗 [Auth0-Roles](https://auth0.com/docs/manage-users/access-control/sample-use-cases-rules-with-authorization)
 
 ### ⚙ Tools:
