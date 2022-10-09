@@ -312,6 +312,8 @@ A brief description of what this project does and who it's for
 
 ### 64. CI/CD - Deploy to Cloud
 
+-deploy api-pariscafe to Heroku cloud
+
 ## Section 8. ORDER State Refresh - On Demand - Pull Model
 
 ### 65.
