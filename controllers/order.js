@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require("uuid");
 const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 
 const { getUser } = require("../auth/AuthHelper");
+const { processRefund } = require("./payment");
 
 exports.getOrdersForAdmin = async (req, res, next) => {
   const status = req.query.status || ORDER_PLACED;
@@ -120,6 +121,28 @@ async function updateStatus(order, newStatus, next) {
     next(createError(error));
   }
 }
+
+exports.cancelOrder = async (req, res, next) => {
+  console.log(
+    "🚀 ~ file: order.js ~ line 108 ~ exports.cancelOrder= ~ req",
+    req.user
+  );
+
+  const userId = getUser(req);
+
+  const order = req.order;
+
+  const { new_status } = req.body;
+
+  const updatedOrder = await updateStatus(order, new_status, next);
+
+  //TODO:make a stripe call to refund
+  processRefund(order._id, next);
+
+  res
+    .status(200)
+    .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
+};
 
 exports.getOrderById = async (req, res, next, id) => {
   const criteria = {

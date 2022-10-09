@@ -11,6 +11,12 @@ const paymentSchema = new mongoose.Schema(
     payment_intent: {
       type: String,
     },
+    refund_status: {
+      type: String,
+    },
+    refund_receipt: {
+      type: String,
+    },
     __v: {
       type: Number,
       select: false,
