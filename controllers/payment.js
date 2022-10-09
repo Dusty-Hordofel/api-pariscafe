@@ -41,14 +41,14 @@ exports.fulfilOrder = async (req, res, next) => {
 
         // get a tiny url
 
-        const tinyUrl = await shortenUrl(orderTrackingUrl);
-        console.log(
-          "🚀 ~ file: payment.js ~ line 42 ~ exports.fulfilOrder= ~ tinyUrl",
-          tinyUrl
-        );
+        // const tinyUrl = await shortenUrl(orderTrackingUrl);
+        // console.log(
+        //   "🚀 ~ file: payment.js ~ line 42 ~ exports.fulfilOrder= ~ tinyUrl",
+        //   tinyUrl
+        // );
 
         // form a order success message
-        const userMessage = createMessage(order._id, tinyUrl);
+        const userMessage = createMessage(order._id, orderTrackingUrl);
 
         //  send the message
 
@@ -108,5 +108,5 @@ exports.fulfilOrder = async (req, res, next) => {
       break;
   }
 
-  res.status(200).json({ message: "Successfully Handled" });
+  // res.status(200).json({ message: "Successfully Handled" });
 };
