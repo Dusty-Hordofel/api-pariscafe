@@ -292,36 +292,39 @@ A brief description of what this project does and who it's for
 
 ## Section 7. ORDER Refund Flow
 
-### 59 API - CANCEL Order
+### 59. API - CANCEL Order
 
 - create processRefund payment controller && cancelOrder()
 - update payment model
 
-### 60 Testing CANCEL Order
+### 60. Testing CANCEL Order
 
 - Testing cancel order payments
+- update stripeHelper,order route annd controller
 
-### 61 REFUND Stripe Webhook event
+### 61. REFUND Stripe Webhook event
 
-### 62 UI Integration - CANCEL Flow
+- create a new Twilio message template
 
-### 63 E-2-E Testing CANCEL Flow
+### 62. UI Integration - CANCEL Flow
 
-### 64 CI/CD - Deploy to Cloud
+### 63. E-2-E Testing CANCEL Flow
+
+### 64. CI/CD - Deploy to Cloud
 
 ## Section 8. ORDER State Refresh - On Demand - Pull Model
 
-### 65
+### 65.
 
-### 66
+### 66.
 
-### 67
+### 67.
 
-### 68
+### 68.
 
-### 69
+### 69.
 
-### 70
+### 70.
 
 ---
 
