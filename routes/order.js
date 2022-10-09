@@ -7,6 +7,7 @@ const {
   updateOrderStatus,
   getMyOrders,
   getOrdersForAdmin,
+  cancelOrder,
 } = require("../controllers/order");
 
 const router = express.Router();
@@ -28,4 +29,16 @@ router.get(
   }),
   getOrdersForAdmin
 );
+
+router.delete(
+  "/orders/:id",
+  jwtChecker,
+  jwtAuthz(["admin:*", "cancel:order"], {
+    checkAllScopes: false,
+    customScopeKey: "permissions",
+    failWithError: true,
+  }),
+  cancelOrder
+);
+
 module.exports = router;

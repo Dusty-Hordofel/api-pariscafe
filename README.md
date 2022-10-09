@@ -299,6 +299,8 @@ A brief description of what this project does and who it's for
 
 ### 60 Testing CANCEL Order
 
+- Testing cancel order payments
+
 ### 61 REFUND Stripe Webhook event
 
 ### 62 UI Integration - CANCEL Flow

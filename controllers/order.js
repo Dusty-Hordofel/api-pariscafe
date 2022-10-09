@@ -5,9 +5,8 @@ const Order = require("../models/order");
 const Payment = require("../models/payment");
 const { v4: uuidv4 } = require("uuid");
 const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
-
+const { processRefund } = require("../helpers/StripeHelper");
 const { getUser } = require("../auth/AuthHelper");
-const { processRefund } = require("./payment");
 
 exports.getOrdersForAdmin = async (req, res, next) => {
   const status = req.query.status || ORDER_PLACED;
@@ -77,6 +76,28 @@ exports.getMyOrders = async (req, res, next) => {
   }
 };
 
+exports.cancelOrder = async (req, res, next) => {
+  console.log(
+    "🚀 ~ file: order.js ~ line 108 ~ exports.cancelOrder= ~ req",
+    req.user
+  );
+
+  const userId = getUser(req);
+
+  const order = req.order;
+
+  const { new_status } = req.body;
+
+  const updatedOrder = await updateStatus(order, new_status, next);
+
+  //make a stripe call to refund
+  processRefund(order._id, next);
+
+  res
+    .status(200)
+    .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
+};
+
 exports.updateOrderStatus = async (req, res, next) => {
   const userId = getUser(req);
 
@@ -122,28 +143,6 @@ async function updateStatus(order, newStatus, next) {
   }
 }
 
-exports.cancelOrder = async (req, res, next) => {
-  console.log(
-    "🚀 ~ file: order.js ~ line 108 ~ exports.cancelOrder= ~ req",
-    req.user
-  );
-
-  const userId = getUser(req);
-
-  const order = req.order;
-
-  const { new_status } = req.body;
-
-  const updatedOrder = await updateStatus(order, new_status, next);
-
-  //TODO:make a stripe call to refund
-  processRefund(order._id, next);
-
-  res
-    .status(200)
-    .json({ status: updatedOrder.status[updatedOrder.status.length - 1] });
-};
-
 exports.getOrderById = async (req, res, next, id) => {
   const criteria = {
     $or: [{ _id: { $in: id } }, { checkout_session_id: { $in: id } }],
@@ -151,6 +150,10 @@ exports.getOrderById = async (req, res, next, id) => {
 
   try {
     const order = await Order.findOne(criteria);
+    console.log(
+      "🚀 ~ file: order.js ~ line 232 ~ exports.getOrderById= ~ order",
+      order
+    );
 
     if (!order) {
       return next(createError(404, "Order not found"));
