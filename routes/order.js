@@ -8,6 +8,8 @@ const {
   getMyOrders,
   getOrdersForAdmin,
   cancelOrder,
+  statusByOrderId,
+  getOrderStatusById,
 } = require("../controllers/order");
 
 const router = express.Router();
@@ -40,5 +42,8 @@ router.delete(
   }),
   cancelOrder
 );
+
+router.param("orderId", statusByOrderId);
+router.get("/orders/status/:orderId", getOrderStatusById); //related to status by orderId
 
 module.exports = router;

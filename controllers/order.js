@@ -3,6 +3,7 @@ const createError = require("http-errors");
 const User = require("../models/user");
 const Order = require("../models/order");
 const Payment = require("../models/payment");
+const OrderStatus = require("../models/order_status");
 const { v4: uuidv4 } = require("uuid");
 const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 const { processRefund } = require("../helpers/StripeHelper");
@@ -136,6 +137,12 @@ async function updateStatus(order, newStatus, next) {
       { order_history: updateOrderHistory }
     );
 
+    await OrderStatus.updateOne(
+      { _id: order._id },
+      { status: order.status },
+      { upsert: true }
+    );
+
     return updatedOrder;
   } catch (error) {
     console.log("🚀 ~ file: order.js ~ line 152 ~ updateStatus ~ error", error);
@@ -222,6 +229,14 @@ exports.createOrder = async (req, res, next) => {
 
     await payment.save();
 
+    const orderStatus = new OrderStatus({
+      _id: orderId,
+    });
+
+    orderStatus.status.push(status);
+
+    await orderStatus.save();
+
     res.status(201).json({ redirect: session.url });
   } catch (error) {
     console.log(
@@ -230,4 +245,24 @@ exports.createOrder = async (req, res, next) => {
     );
     next(createError(error));
   }
+};
+
+exports.statusByOrderId = async (req, res, next, orderId) => {
+  try {
+    const order = await OrderStatus.findById(orderId);
+
+    if (!order) {
+      next(createError(400, "Order not found"));
+    }
+
+    req.order = order;
+
+    next();
+  } catch (error) {}
+};
+
+exports.getOrderStatusById = async (req, res) => {
+  const order = req.order;
+
+  res.status(200).json(order.status);
 };
