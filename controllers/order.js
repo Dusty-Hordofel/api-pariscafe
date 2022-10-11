@@ -266,3 +266,9 @@ exports.getOrderStatusById = async (req, res) => {
 
   res.status(200).json(order.status);
 };
+
+exports.getMyOrderById = async (req, res) => {
+  const order = req.order;
+
+  res.status(200).json(order);
+};

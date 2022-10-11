@@ -3,6 +3,114 @@ const createError = require("http-errors");
 const { userSchema } = require("../validators/schema-validator");
 
 exports.getUserAddress = (req, res, next) => {
+  const address = req.internal_user.address;
+
+  if (!address) {
+    return next(createError(404, "Address not found"));
+  }
+
+  res.status(200).json(address);
+};
+
+exports.updateAddress = async (req, res, next) => {
+  const user = req.internal_user;
+  const address = req.body;
+
+  try {
+    const updatedUserObject = await User.findByIdAndUpdate(
+      { _id: user._id },
+      { address },
+      {
+        new: true,
+        runValidators: true,
+        context: "query",
+        useFindAndModify: false,
+      }
+    );
+
+    res.status(200).json(updatedUserObject.address);
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: user.js ~ line 20 ~ exports.updateAddress= ~ error",
+      error
+    );
+    next(createError(error));
+  }
+};
+
+exports.getUserById = (req, res) => {
+  console.log(req.internal_user);
+  res.status(200).json(req.internal_user);
+};
+
+exports.fetchById = async (req, res, next, id) => {
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      console.log(
+        "🚀 ~ file: user.js ~ line 67 ~ exports.updateAddress= ~ error",
+        error
+      );
+      console.log(
+        "🚀 ~ file: user.js ~ line 66 ~ exports.updateAddress= ~ error",
+        error
+      );
+      console.log(
+        "🚀 ~ file: user.js ~ line 66 ~ exports.updateAddress= ~ error",
+        error
+      );
+      return next(createError(404, "User not found"));
+    }
+
+    req.internal_user = user;
+    next();
+  } catch (error) {
+    console.log(
+      "🚀 ~ file: user.js ~ line 18 ~ exports.fetchById= ~ error",
+      error
+    );
+    next(error);
+  }
+};
+
+exports.createUser = async (req, res, next) => {
+  console.log(req.user);
+  let user;
+
+  try {
+    const validated = await userSchema.validateAsync(req.body);
+    user = new User(validated);
+    const newUser = await user.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    if (error.isJoi === true) error.status = 422;
+
+    if (error.message.includes("E11000")) {
+      console.log(
+        "🚀 ~ file: user.js ~ line 75 ~ exports.fetchById= ~ error",
+        error
+      );
+      console.log(
+        "🚀 ~ file: user.js ~ line 75 ~ exports.fetchById= ~ error",
+        error
+      );
+      return next(
+        createError.Conflict(`User with email ${user.email} already exists`)
+      );
+    }
+    console.log(
+      "🚀 ~ file: user.js ~ line 16 ~ exports.createUser= ~ error",
+      error
+    );
+    next(error);
+  }
+};
+
+/*const User = require("../models/user");
+const createError = require("http-errors");
+const { userSchema } = require("../validators/schema-validator");
+
+exports.getUserAddress = (req, res, next) => {
   //TODO: get user object
   const address = req.internal_user.address;
   //TODO: if address don't exist, throw error
@@ -98,4 +206,4 @@ exports.createUser = async (req, res, next) => {
     next(error);
   }
   //   res.status(201).json({ message: 'user created successfully' });
-};
+// };*/

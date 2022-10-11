@@ -1,0 +1,2 @@
+### get order status
+GET http://localhost:7787/api/orders/status/24a5d18c-c791-483d-af0c-c3aa6824fd99
