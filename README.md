@@ -316,17 +316,47 @@ A brief description of what this project does and who it's for
 
 ## Section 8. ORDER State Refresh - On Demand - Pull Model
 
-### 65.
+### 65. Intro to Stripe CLI , ORDER Status Mongo Model Creation
 
-### 66.
+- install stripe cli
+- type stripe listen --forward-to http://localhost:xxxxxxxxxxxxxxxx in the terminal
+- stripe logs tail
 
-### 67.
+### 66. Refine ORDER Management Workflow
 
-### 68.
+### 67. API Testing
 
-### 69.
+### 68. UI Integration, Stripe Idempotent Requests
 
-### 70.
+### 69. Retrieve ORDER by Id
+
+### 70. UI Integration with multiple flows
+
+### 71. CI/CD - Deploy to Cloud
+
+### 72. Validating the Deploy on cloud
+
+### 73. Validation of ORDER State refresh
+
+### 74.
+
+### 75.
+
+### 76.
+
+### 77.
+
+### 78.
+
+### 79.
+
+### 80.
+
+### 81.
+
+### 82.
+
+### 83.
 
 ---
 
