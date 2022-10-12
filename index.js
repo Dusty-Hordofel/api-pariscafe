@@ -1,5 +1,5 @@
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const createError = require("http-errors");
@@ -15,7 +15,7 @@ const paymentRoutes = require("./routes/payment");
 const app = express(); //to create a server
 
 //middleware
-// app.use(morgan("dev")); //to Server log
+app.use(morgan("dev")); //to Server log
 app.use(cors()); //to accept requests from any origin
 app.use(express.json({ limit: "3mb" })); //to receive json data
 app.use(express.urlencoded({ limit: "3mb", extended: true }));

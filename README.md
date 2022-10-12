@@ -342,9 +342,13 @@ A brief description of what this project does and who it's for
 
 ### 74. Intro to Web Sockets and Integration with API server
 
-### 75. Intro to Web Sockets readiness on the React client
+- create helpers->web-sockets
 
-### 76. Sending Real time messages from server to client
+### 75. Sending Real time messages from server to client
+
+- create pushMessageToClient() && updateStatus controller
+
+### 76.
 
 ### 77. Display Notification on UI; Deploy to Cloud
 
