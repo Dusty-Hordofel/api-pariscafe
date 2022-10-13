@@ -338,15 +338,21 @@ A brief description of what this project does and who it's for
 
 ### 73. Validation of ORDER State refresh
 
-### 74.
+## Section 9. Real Time Messaging - Web Sockets, Push Model
 
-### 75.
+### 74. Intro to Web Sockets and Integration with API server
+
+- create helpers->web-sockets
+
+### 75. Sending Real time messages from server to client
+
+- create pushMessageToClient() && updateStatus controller
 
 ### 76.
 
-### 77.
+### 77. Display Notification on UI; Deploy to Cloud
 
-### 78.
+### 78. Validation of Web sockets messaging between Netlify and Heroku
 
 ### 79.
 
@@ -388,6 +394,7 @@ A brief description of what this project does and who it's for
 - 🔗 [uuid](https://www.npmjs.com/package/uuid)
 - 🔗 [twilio](https://www.twilio.com/fr/docs/sms/quickstart/node)
 - 🔗 [bitly](https://dev.bitly.com/docs/tutorials/integrate-bitly-in-your-app/)
+- 🔗 [socket.io](https://www.npmjs.com/package/socket.io)
 
 ### 📚 Documentary References
 

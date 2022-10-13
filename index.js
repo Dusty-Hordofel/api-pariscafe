@@ -1,8 +1,9 @@
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const createError = require("http-errors");
+const { startWebSocketListener } = require("./helpers/web-sockets");
 require("dotenv").config();
 
 const categoryRoutes = require("./routes/category");
@@ -14,7 +15,7 @@ const paymentRoutes = require("./routes/payment");
 const app = express(); //to create a server
 
 //middleware
-// app.use(morgan("dev")); //to Server log
+app.use(morgan("dev")); //to Server log
 app.use(cors()); //to accept requests from any origin
 app.use(express.json({ limit: "3mb" })); //to receive json data
 app.use(express.urlencoded({ limit: "3mb", extended: true }));
@@ -34,15 +35,17 @@ app.get("/", (req, res) => {
 });
 
 //connect to database
-app.listen(PORT, async () => {
-  console.log(`Server running on port ${PORT}`);
-  try {
-    await mongoose.connect(DATABASE);
-    console.log("Connected to Mongo...");
-  } catch (error) {
-    console.log("🚀 ~ file: index.js ~ line 26 ~ app.listen ~ error", error);
-  }
-}); //to start the server
+// app.listen(PORT, async () => {
+//   console.log(`Server running on port ${PORT}`);
+//   try {
+//     await mongoose.connect(DATABASE);
+//     console.log("Connected to Mongo...");
+//   } catch (error) {
+//     console.log("🚀 ~ file: index.js ~ line 26 ~ app.listen ~ error", error);
+//   }
+// }); //to start the server
+
+startWebSocketListener(app);
 
 //TODO: handling invalid route
 app.use(async (req, res, next) => {

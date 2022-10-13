@@ -8,6 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 const { ORDER_PLACED, ORDER_ABANDONED } = require("./orderConstants");
 const { processRefund } = require("../helpers/StripeHelper");
 const { getUser } = require("../auth/AuthHelper");
+const { connectedClients, webSocketIO } = require("../helpers/web-sockets");
 
 exports.getOrdersForAdmin = async (req, res, next) => {
   const status = req.query.status || ORDER_PLACED;
@@ -143,11 +144,25 @@ async function updateStatus(order, newStatus, next) {
       { upsert: true }
     );
 
+    pushMessageToClient(updatedOrder, newStatus);
+
     return updatedOrder;
   } catch (error) {
     console.log("🚀 ~ file: order.js ~ line 152 ~ updateStatus ~ error", error);
     next(createError(error));
   }
+}
+
+function pushMessageToClient(order, newStatus) {
+  const socketId = connectedClients[order.placedBy].socket;
+
+  socketId &&
+    webSocketIO().to(socketId).emit("order-update", {
+      action: "UPDATE",
+      order: order,
+      status: newStatus,
+      time: new Date(),
+    });
 }
 
 exports.getOrderById = async (req, res, next, id) => {
