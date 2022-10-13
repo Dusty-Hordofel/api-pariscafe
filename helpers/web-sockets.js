@@ -52,14 +52,16 @@ const startWebSocketListener = (app) => {
       );
       console.log("socket:", connectedClients[data.userId].socket);
 
-      //   const socketId = connectedClients[data.userId].socket;
+      // const socketId = connectedClients[data.userId].socket;
 
-      //   setInterval(() => {
-      //     webSocketIO().to(socketId).emit("order-update", {
-      //       action: "order-update",
-      //       time: new Date(),
-      //     });
-      //   }, 1000);
+      // setInterval(() => {
+
+      //   webSocketIO().to(socketId).emit('order-update', {
+
+      //     action: 'order-update',
+      //     time: new Date()
+      //   })
+      // }, 1000);
     });
   });
 
