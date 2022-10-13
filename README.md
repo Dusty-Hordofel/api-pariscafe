@@ -348,11 +348,13 @@ A brief description of what this project does and who it's for
 
 - create pushMessageToClient() && updateStatus controller
 
-### 76.
+### 76. Display Notification on UI; Deploy to Cloud
 
-### 77. Display Notification on UI; Deploy to Cloud
+### 77. Validation of Web sockets messaging between Netlify and Heroku
 
-### 78. Validation of Web sockets messaging between Netlify and Heroku
+## Section 10. ORDER State Refresh - On Demand - Pull Model
+
+### 78.
 
 ### 79.
 
@@ -363,6 +365,22 @@ A brief description of what this project does and who it's for
 ### 82.
 
 ### 83.
+
+### 84.
+
+### 85.
+
+### 86.
+
+### 87.
+
+### 88.
+
+### 89.
+
+### 90.
+
+### 91.
 
 ---
 
