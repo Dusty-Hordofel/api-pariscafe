@@ -352,35 +352,37 @@ A brief description of what this project does and who it's for
 
 ### 77. Validation of Web sockets messaging between Netlify and Heroku
 
-## Section 10. ORDER State Refresh - On Demand - Pull Model
+## Section 10. Design ADMIN Section
 
-### 78.
+### 78. UI - Creating Dish Category
 
-### 79.
+### 79. Form state and data handling - Formik and Yup
 
-### 80.
+### 80. E-2-E Testing
 
-### 81.
+### 81. Design Admin Links panel
 
-### 82.
+### 82. Form Design for Adding Dish
 
-### 83.
+### 83. UI Integration with API
 
-### 84.
+### 84. E-2-E Testing - Create a Dish
 
-### 85.
+### 85. Image preview, upload with Formik
 
-### 86.
+### 86. Testing Dish Creation with image data
 
-### 87.
+### 87. Display Admin on Navbar
 
-### 88.
+### 88. CI/CD Deploy to cloud
 
-### 89.
+### 89. Spruce up the UI - Bug Fixes
 
-### 90.
+### 90. Protecting ADMIN APIs with JWT SCOPED tokens
 
-### 91.
+### 91. E-2-E Security Implementation , Testing , Deploy to Netlify
+
+### 92. Validation on Cloud
 
 ---
 
